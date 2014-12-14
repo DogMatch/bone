@@ -3,12 +3,12 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Welcome to Bone!</h1>
+  <h4>Would you like to add a photo</h4>
 
-  {{> hello}}
+  <div data-ng-controller="profileCtrl">
+    <input type="file" id='onloadend' ng-click="photoUpload()"><br>
+    <img src="" height="200" alt="Image preview...">
+  </div>
+
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>

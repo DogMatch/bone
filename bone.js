@@ -1,19 +1,27 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault("counter", 0);
+    angular.module('bone',['angular-meteor']);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get("counter");
-    }
-  });
+    Meteor.startup(function () {
+      angular.bootstrap(document, ['bone']);
+    });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set("counter", Session.get("counter") + 1);
-    }
-  });
+    angular.module("bone").controller("profileCtrl", ['$scope', function($scope){
+      $scope.photoUpload = function() {
+        var preview = document.querySelector('img'); //selects the query named img
+        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+        var reader  = new FileReader();
+
+        reader.onloadend = function () {
+          preview.src = reader.result;
+        };
+
+        if (file) {
+          reader.readAsDataURL(file); //reads the data as a URL
+        } else {
+          preview.src = "";
+        }
+      };
+    }]);
 }
 
 if (Meteor.isServer) {
