@@ -1,0 +1,18 @@
+<head>Profile</head>
+
+<body>
+<h4>Would you like to add a photo</h4>
+
+<div data-ng-controller="profileCtrl">
+  <label>Name</label>
+  <input type="text" data-ng-model="Dogs.name">
+  <label>Age</label>
+  <input type="text" data-ng-model="Dogs.age">
+  <label>Sex</label>
+  <input type="text" data-ng-model="Dogs.sex">
+  <label>Breed</label>
+  <input type="text" data-ng-model="Dogs.breed">
+  <input type="file" id='onloadend' ng-click="photoUpload()"><br>
+  <img src="" height="200" alt="Image preview...">
+</div>
+</body>
