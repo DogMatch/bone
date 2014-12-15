@@ -8,6 +8,11 @@ angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$loca
       url: "/main",
       template: UiRouter.template("landing-view.html"),
       controller: "LandingCtrl"
+    })
+    .state('dogProfile', {
+      url: "/dog",
+      template: UiRouter.template("dog-profile-view.html"),
+      controller: "DogProfileCtrl"
     });
 
     $urlRouterProvider.otherwise('/main');

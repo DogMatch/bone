@@ -1,5 +1,4 @@
-angular.module("bone").controller("dgProfileCtrl", ['$scope', function($scope){
-
+angular.module("boneApp").controller("DogProfileCtrl", ['$scope', function($scope){
 
   $scope.photoUpload = function() {
     var preview = document.querySelector('img'); //selects the query named img

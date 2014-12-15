@@ -1,9 +1,5 @@
-<head>Dog Profile</head>
-
-<body>
+<template name="dog-profile-view.html">
 <h4>Tell us about your dog.</h4>
-
-<div data-ng-controller="dgProfileCtrl">
   <label>Name</label>
   <input type="text" data-ng-model="Dogs.name">
   <label> Pet Description</label>
@@ -16,6 +12,4 @@
   <input type="text" data-ng-model="Dogs.breed">
   <input type="file" id='onloadend' ng-click="photoUpload()"><br>
   <img src="" height="200" alt="Image preview...">
-
-</div>
-</body>
+</template>
