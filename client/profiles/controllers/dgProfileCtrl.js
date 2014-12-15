@@ -1,4 +1,4 @@
-angular.module("bone").controller("profileCtrl", ['$scope', function($scope){
+angular.module("bone").controller("dgProfileCtrl", ['$scope', function($scope){
 
 
   $scope.photoUpload = function() {
@@ -19,6 +19,9 @@ angular.module("bone").controller("profileCtrl", ['$scope', function($scope){
           age: $scope.Dogs.age,
           sex: $scope.Dogs.sex,
           breed: $scope.Dogs.breed,
+          fan: [],
+          friend: [],
+          foe: []
         });
       } else {
         preview.src = "";
