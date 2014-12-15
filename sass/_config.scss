@@ -1,0 +1,29 @@
+//Color palette
+//-----------------------
+$color1: #FFFFFF         !default; //white
+$color2: #1EF8FF         !default; //bright blue
+$color3: #FFC196         !default; //tan (br blue complem)
+
+
+// Derivative colors
+// -------------------------
+$darker-color1:           darken($color1, 10%) !default;
+$darker-color2:           darken($color2, 25%) !default;
+$darker2-color2:          darken($color2, 50%) !default;
+
+//Font information
+//-----------------------
+$default-font-family: 'Open Sans',sans-serif;
+$defualt-font-size: 1em !default;
+$header-font-family: 'Oswald',courier, sans-serif !default;
+$h1-font-size: 2.5em !default;
+$h2-font-size: 2em   !default;
+$h3-font-size: 1.5em !default;
+
+
+//Responsive
+//-----------------------------
+$large-screen-min-width: 30em !default;
+//dpi check
+$retina-min-dpi: 192dpi !default;
+

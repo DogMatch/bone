@@ -1,0 +1,9 @@
+@mixin add-webkit-p($property, $value) {
+  -webkit-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+@mixin add-webkit-v($property, $value) {
+  #{$property}: -webkit-#{$value};
+  #{$property}: #{$value};
+}
