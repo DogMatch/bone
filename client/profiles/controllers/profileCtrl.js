@@ -15,7 +15,7 @@ angular.module("bone").controller("profileCtrl", ['$scope', function($scope){
         Dogs.insert({
           name: $scope.Dogs.name,
           bio: $scope.Dogs.description,
-          photo: reader.result,
+          photo: file,
           age: $scope.Dogs.age,
           sex: $scope.Dogs.sex,
           breed: $scope.Dogs.breed,
