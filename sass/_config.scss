@@ -1,24 +1,22 @@
-//Color palette
+//Typography Configuration
 //-----------------------
-$color1: #FFFFFF         !default; //white
-$color2: #1EF8FF         !default; //bright blue
-$color3: #FFC196         !default; //tan (br blue complem)
+$font-size: 16;
 
+$heading-1: 36;
+$heading-2: 32;
+$heading-3: 28;
+$heading-4: 18;
+$heading-5: 18;
+$heading-6: 18;
 
-// Derivative colors
-// -------------------------
-$darker-color1:           darken($color1, 10%) !default;
-$darker-color2:           darken($color2, 25%) !default;
-$darker2-color2:          darken($color2, 50%) !default;
+$line: $font-size * 1.5;
+$small-point-size: 10;
+$large-point-size: 14;
 
-//Font information
-//-----------------------
-$default-font-family: 'Open Sans',sans-serif;
-$defualt-font-size: 1em !default;
-$header-font-family: 'Oswald',courier, sans-serif !default;
-$h1-font-size: 2.5em !default;
-$h2-font-size: 2em   !default;
-$h3-font-size: 1.5em !default;
+$primary-font-family: #{"Chiva", Arial, sans-serif};
+$secondary-font-family: #{"Open-Sans", Helvetica, sans-serif};
+$heading-font-family: #{"Lato", Arial, sans-serif};
+$secondary-heading-font-family: #{"Fjord_One", times, serif};
 
 
 //Responsive
