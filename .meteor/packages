@@ -9,4 +9,7 @@ insecure
 urigo:angular-ui-router
 accounts-password
 urigo:angular
+cfs:standard-packages
+cfs:filesystem
+netanelgilad:angular-file-upload
 
