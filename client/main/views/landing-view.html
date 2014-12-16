@@ -1,5 +1,24 @@
 <template name="landing-view.html">
   <img src="/images/bone.jpg" width="350" height="350" alt="Bone"><br/>
-  <button type="button">Sign In</button>
-  <button type="button">Sign Up</button>
+  
+  <section>
+    <button type="button">Sign In</button>
+    <button type="button">Sign Up</button>
+  </section>
+  
+  <section>
+    <input type="text" placeholder="username" ng-model="user.username" />
+    <input type="password" placeholder="password" ng-model="user.password" />
+    <button type="button" ng-click="backToLanding()">Cancel</button>
+    <button type="button" ng-click="signInUser()">Done</button>
+  </section>
+  
+  <section>
+    <input type="text" placeholder="username" ng-model="newUser.username" />
+    <input type="text" placeholder="email" ng-model="newUser.email" />
+    <input type="password" placeholder="password" ng-model="newUser.password" />
+    <input type="password" placeholder="password confirm" ng-model="newUser.passwordConfirm" />
+    <button type="button" ng-click="backToLanding()">Cancel</button>
+    <button type="button" ng-click="createUser()">Done</button>
+  </section>
 </template>
