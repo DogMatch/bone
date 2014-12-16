@@ -1,4 +1,6 @@
-angular.module("boneApp").controller("DogProfileCtrl", ['$scope', function($scope){
+angular.module("boneApp").controller("DogProfileCtrl", ['$scope','$collection', function($scope, $collection){
+  //$collection(Dogs).bind($scope, 'dogs', true, true);
+  //$collection(Images).bind($scope, 'images'. true, true);
 
   $scope.photoUpload = function() {
     var preview = document.querySelector('img'); //selects the query named img
@@ -11,10 +13,8 @@ angular.module("boneApp").controller("DogProfileCtrl", ['$scope', function($scop
 
       if (file) {
         reader.readAsDataURL(file); //reads the data as a URL
-        Dogs.insert({
-          name: $scope.Dogs.name,
+        Dogs.insert({name: $scope.Dogs.name,
           bio: $scope.Dogs.description,
-          photo: file,
           age: $scope.Dogs.age,
           sex: $scope.Dogs.sex,
           breed: $scope.Dogs.breed,
@@ -22,6 +22,7 @@ angular.module("boneApp").controller("DogProfileCtrl", ['$scope', function($scop
           friend: [],
           foe: []
         });
+
       } else {
         preview.src = "";
       }
