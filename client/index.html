@@ -1,14 +1,25 @@
 <head>
   <title>Bone</title>
+  <meta charset="utf-8">
   <base href="/">
 </head>
-
 <body>
-  <div>
-    <h1>
-      Give a dog a Bone!
-    </h1>
-    <div ui-view></div>
-  </div>
-  
+  <header>
+    <img src="#">
+    <button class="btn-header">Done</button>
+  </header>
+  <main ui-view></main>
+  <footer>
+    <section>
+      <nav class="mobile-nav">
+        <ul>
+          <li>Profile</li>
+          <li>Messages</li>
+          <li>Find A Match</li>
+          <li>Settings</li>
+          <li>Invite</li>
+        </ul>
+      </nav>
+    </section>
+  </footer>
 </body>
