@@ -1,11 +1,12 @@
-<body>
+<template name='match.html'>
   <h3> Find a new friend</h3>
 <div data-ng-controller='matchCtrl'>
   <div id="picBox" data-ng-init='match()'>
-    <img scr='[[pics]]' alt='Dogs'>
-    <p> [[pics]] </p>
-    <button ng-click='Yes()'>Yes</button>
-    <button ng-click='No()'>No</button>
+    <img src=[[Images[counter].url]] height="200" width="150" alt='Dogs'>
+    <p> [[Dogs[counter].name]] [[Dogs[counter].age]] [[Dogs[counter].breed]] </p>
+    <button ng-click='No()'>Back</button>
+    <button ng-click='Yes()'>Next</button>
+
   </div>
 </div>
-</body>
+</template>

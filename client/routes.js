@@ -13,6 +13,10 @@ angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$loca
       url: "/dog",
       template: UiRouter.template("dog-profile-view.html"),
       controller: "DogProfileCtrl"
+    })
+    .state('match', {
+      url: "/match",
+      template: UiRouter.template("match.html"),
     });
 
     $urlRouterProvider.otherwise('/main');

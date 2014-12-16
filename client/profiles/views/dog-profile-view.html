@@ -1,4 +1,4 @@
-<body>
+  <body>
 <div data-ng-controller="DogProfileCtrl">
 <h4>Tell us about your dog.</h4>
   <label>Name</label>
@@ -16,12 +16,5 @@
   <input type="file" multiple="true" id='onloadend' ng-click="photoUpload()"><br>
   {{/c_upload}}
 
-  <h3>Saved images</h3>
-  {{#each saved_images}}
-  <br>
-  <img width="250" src="{{secure_url}}">
-  <img width="250" src="{{c.url public_id format=format effect='blur:300' angle=10}}">
-  <button class="delete">Delete</button>
-  {{/each}}
 </div>
 </body>

@@ -1,4 +1,4 @@
-angular.module('boneApp', ['angular-meteor', 'ui.router']);
+angular.module('boneApp', ['angular-meteor', 'ui.router', 'ngImgCrop']);
 
 Meteor.startup(function() {
   angular.bootstrap(document, ['boneApp']);

@@ -15,6 +15,8 @@ Meteor.startup(function () {
     }
   });
 
+  //Dogs.update({}, {$addToSet: {randomize: Math.random()}}, {multi: true});
+
   var userCount = Meteor.users.find().count();
   if ( userCount === 0) {
     console.log('Seeding data!');
