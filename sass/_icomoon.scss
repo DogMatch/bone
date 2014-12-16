@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'icomoon';
-  src:url('../fonts/icomoon.eot?8fdye');
-  src:url('../fonts/icomoon.eot?#iefix8fdye') format('embedded-opentype'),
-  url('../fonts/icomoon.woff?8fdye') format('woff'),
-  url('../fonts/icomoon.ttf?8fdye') format('truetype'),
-  url('../fonts/icomoon.svg?8fdye#icomoon') format('svg');
+  src:url('/fonts/ico-fonts/icomoon.eot?8fdye');
+  src:url('/fonts/ico-fonts/icomoon.eot?#iefix8fdye') format('embedded-opentype'),
+  url('/fonts/ico-fonts/icomoon.woff?8fdye') format('woff'),
+  url('/fonts/ico-fonts/icomoon.ttf?8fdye') format('truetype'),
+  url('/fonts/ico-fonts/icomoon.svg?8fdye#icomoon') format('svg');
 }
 
 //Adapted from http://sassmeister.com/gist/4731881
 
-$icons: (checkmark "\e600") (check-alt "\e601") (x "\e602") (mail "\e60e") (plus "\e603") (plus-alt "\e604") (award-fill "\e60f") (award-stroke "\e610") (home "\e611") (office "\e60a") (location "\e612") (leaf "\e613") (info "\e614") (image "\e605") (drawyer "\e606") (bubbles "\e607") (warning "\e608") (blocked "\e609") (googleplus "\e60b") (facebook "\e60c") (twitter "\e60d");
+$icons: (checkmark "\e600") (check-alt "\e601") (x "\e602") (mail "\e60e") (plus "\e603") (plus-alt "\e604") (award-fill "\e60f") (award-stroke "\e610") (home "\e611") (office "\e60a") (location "\e612") (leaf "\e613") (info "\e614") (image "\e605") (drawyer "\e606") (bubbles "\e607") (warning "\e608") (blocked "\e609") (googleplus "\e60b") (facebook "\e60c") (twitter "\e60d") (cog "\e615") (star "\e616") (heart "\e617");
 
 %ico-font-base {
   font-family: 'icomoon';
