@@ -6,11 +6,3 @@ Meteor.publish("allUserData", function () {
     'profile': true,
   }});
 });
-
-Accounts.onCreateUser(function(options, user) {
-  user.profile = options.profile ? options.profile : {};
-  user.profile.zip = '';
-  user.profile.current_location = null;
-  user.profile.myDogs = [];
-  return user;
-});

@@ -8,9 +8,9 @@ autopublish
 insecure
 urigo:angular-ui-router
 accounts-password
+accounts-facebook
 urigo:angular
 cfs:standard-packages
 cfs:filesystem
 netanelgilad:angular-file-upload
 fourseven:scss
-
