@@ -12,6 +12,10 @@ urigo:angular
 cfs:standard-packages
 cfs:filesystem
 netanelgilad:angular-file-upload
+<<<<<<< HEAD
 mrt:aws-sdk-js
 lepozepo:cloudinary
+=======
+fourseven:scss
+>>>>>>> c84643e91d8124b8ee3cf0ebe6eb3066bbf6ce6a
 
