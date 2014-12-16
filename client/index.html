@@ -8,20 +8,22 @@
   <header>
     <section class="top-bar">
       <!-- Logo image -->
-      <figure class="logo">
-        <img src="/BoneLogoIvory.svg" alt="Bone">
-        <figcaption>Bone App</figcaption>
-      </figure>
-      <div class="edit_done" style="display:none">
+      <section class="logo-flex">
+        <figure class="logo">
+          <img src="/BoneLogoIvory.svg" alt="Bone">
+          <figcaption>Bone App</figcaption>
+        </figure>
+      </section>
+      <div class="edit_done nav-like icon-checkmark">
         <p>edit</p>
       </div>
-      <nav class="desktop-nav" style="display:none">
+      <nav class="desktop-nav">
         <ul>
-          <li>Profile</li>
-          <li>Messages</li>
-          <li>Find A Match</li>
-          <li>Settings</li>
-          <li>Invite</li>
+          <li class="nav-item"><p class="icon-home"></p>Profile</li>
+          <li class="nav-item"><p  class="icon-bubbles"></p>Messages</li>
+          <li class="nav-item"><p class="icon-heart"></p>Match Up</li>
+          <li class="nav-item"><p class="icon-cog"></p>Settings</li>
+          <li class="nav-item"><p class="icon-mail"></p>Invite</li>
         </ul>
       </nav>
     </section>
@@ -29,20 +31,21 @@
 
   <main class="landing">
     <!-- H1 will be the text over the background image. the dots the show the slider I'm not sure if those require thier own tag or if they are done all in CSS -->
-    <h1 class="landing-title">Welcome to Bone!</h1>
+    <h1 tabindex="0" class="landing-title">Welcome to Bone!</h1>
     <p>Bone is for the dogs! Find your dog a match in your area in the style of human dating apps. This isn't necessarily a dog dating app but for finding other dogs in your area to make connections and hang out with. Don't be gross, people.</p>
     <h3>Join Us</h3>
 
 
     <!-- This section will be for the sign up form. Show/Hide to be done with AngularJS -->
-    <section class="landing-form-signup">
+    <!-- <section class="landing-form-signup">
       <form>
         <input type="text" placeholder="Username">
         <input type="email" placeholder="example@gmail.com">
         <input type="password" placeholder="Password">
         <input type="password" placeholder="Re-enter your password">
       </form>
-    </section>
+    </section> -->
+
     <!-- This section will be for the sign in form. Show/Hide to be done with AngularJS -->
     <!-- <section class="landing-form-signin">
       <form>
@@ -63,11 +66,11 @@
     <section>
       <nav class="mobile-nav">
         <ul>
-          <li class="icon-home"><p>Profile</p></li>
-          <li class="icon-bubbles"><p>Messages</p></li>
-          <li class="icon-heart"><p>Find A Match</p></li>
-          <li class="icon-cog"><p>Settings</p></li>
-          <li class="icon-mail"><p>Invite</p></li>
+          <li class="nav-item"><p class="icon-home"></p>Profile</li>
+          <li class="nav-item"><p  class="icon-bubbles"></p>Messages</li>
+          <li class="nav-item"><p class="icon-heart"></p>Match Up</li>
+          <li class="nav-item"><p class="icon-cog"></p>Settings</li>
+          <li class="nav-item"><p class="icon-mail"></p>Invite</li>
         </ul>
       </nav>
     </section>

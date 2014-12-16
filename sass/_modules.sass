@@ -1,8 +1,76 @@
+.logo-flex
+  @include add-webkit-v(display, flex)
+  @include add-webkit-p(flex-direction, row)
+  @include add-webkit-p(flex-wrap, nowrap)
+  @include add-webkit-p(justify-content, center)
+  @include add-webkit-p(align-items, center)
+  @include add-webkit-p(align-content, center)
+
 .logo
-  width: 5em
+  @include add-webkit-p(flex, "0, 1, auto")
+  width: 4em
+  padding-top: 0.3em
+  padding-bottom: 0.4em
+  // margin: 0 auto
   & figcaption
     display: none
 
 .top-bar
   background-color: $top-bar-bgcolor
   color: $inverse-text
+
+.nav-like
+  text-align: center
+  float: right
+  position: relative
+  top: -2.5em
+  right: 1em
+
+
+
+
+.landing
+  padding: 0.2em
+  background-image: Url("/images/blurDogBG1.jpg")
+  background-repeat: no-repeat
+  background-size: cover
+
+
+.landing-title
+  text-align: center
+  padding-bottom: 0.2em
+
+.landing-btns
+  padding: 1.5%
+  & button
+    display: inline
+    width: 49%
+
+
+//NAV Sections -- some individual classes for items that act like them will need to be added as well
+
+
+.desktop-nav
+  padding: 0.5em 0 2.2em 0
+  color: $color2
+  display: none
+  // @media (min-width : $large-screen-min-width)
+  //   display: block
+
+.mobile-nav
+  margin-top: 2%
+  // @media (min-width : $large-screen-min-width)
+  //   display: none
+
+.mobile-nav, .desktop-nav
+  & li
+    font-family: $heading-font-family
+    font-size: $small-point-size
+    text-align: center
+    width: 19.9%
+    display: inline
+    float: left
+
+.mobile-nav, .desktop-nav
+  & p
+    font-size: $large-point-size
