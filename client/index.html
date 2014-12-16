@@ -1,14 +1,74 @@
 <head>
-  <title>Bone</title>
-  <base href="/">
+  <meta charset="utf-8">
+  <title>[[title]]</title>
+  <!-- <link rel="stylesheet" href="main.css"> -->
 </head>
-
 <body>
-  <div>
-    <h1>
-      Give a dog a Bone!
-    </h1>
-    <div ui-view></div>
-  </div>
-  
+  <header>
+    <section class="top-bar">
+      <!-- Logo image -->
+      <figure class="logo">
+        <img src="/BoneLogoIvory.svg" alt="Bone">
+        <figcaption>Bone App</figcaption>
+      </figure>
+      <div class="edit_done" style="display:none">
+        <p>edit</p>
+      </div>
+      <nav class="desktop-nav" style="display:none">
+        <ul>
+          <li>Profile</li>
+          <li>Messages</li>
+          <li>Find A Match</li>
+          <li>Settings</li>
+          <li>Invite</li>
+        </ul>
+      </nav>
+    </section>
+  </header>
+
+  <main class="landing">
+    <!-- H1 will be the text over the background image. the dots the show the slider I'm not sure if those require thier own tag or if they are done all in CSS -->
+    <h1 class="landing-title">Welcome to Bone!</h1>
+    <p>Bone is for the dogs! Find your dog a match in your area in the style of human dating apps. This isn't necessarily a dog dating app but for finding other dogs in your area to make connections and hang out with. Don't be gross, people.</p>
+    <h3>Join Us</h3>
+
+
+    <!-- This section will be for the sign up form. Show/Hide to be done with AngularJS -->
+    <section class="landing-form-signup">
+      <form>
+        <input type="text" placeholder="Username">
+        <input type="email" placeholder="example@gmail.com">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Re-enter your password">
+      </form>
+    </section>
+    <!-- This section will be for the sign in form. Show/Hide to be done with AngularJS -->
+    <!-- <section class="landing-form-signin">
+      <form>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+      </form>
+    </section> -->
+    <!-- This secton is for the two buttons at the bottom of the page that wil be used for signing up or signing in -->
+
+    <section class="landing-btns">
+      <button class="sign-up">Sign Up</button>
+      <button class="sign-in">Sign In</button>
+    </section>
+  </main>
+
+    <!-- This section will be used for holding the nav and can be used for the rest of the site as a view module -->
+  <footer>
+    <section>
+      <nav class="mobile-nav">
+        <ul>
+          <li class="icon-home"><p>Profile</p></li>
+          <li class="icon-bubbles"><p>Messages</p></li>
+          <li class="icon-heart"><p>Find A Match</p></li>
+          <li class="icon-cog"><p>Settings</p></li>
+          <li class="icon-mail"><p>Invite</p></li>
+        </ul>
+      </nav>
+    </section>
+  </footer>
 </body>
