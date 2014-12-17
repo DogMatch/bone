@@ -2,6 +2,23 @@ angular.module("boneApp").controller("DogProfileCtrl", ['$scope','$collection', 
   $collection(Dogs).bind($scope, 'Dogs', true, true);
   $collection(Images).bind($scope, 'Images', true, true);
   $scope.selfie = Images[0];
+  $scope.viewChoice = 'petProfile';
+
+$scope.petEdit = function() {
+  $scope.viewChoice = 'petEdit';
+};
+
+$scope.petPhoto = function() {
+  $scope.viewChoice = 'petPhoto';
+};
+
+$scope.petBio = function() {
+  $scope.viewChoice = 'petDescription';
+};
+
+$scope.petMain = function() {
+  $scope.viewChoice = 'petProfile';
+};
 
 $scope.dogData = function() {
   Dogs.insert({name: $scope.Dogs.name,
