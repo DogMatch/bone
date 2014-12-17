@@ -28,7 +28,7 @@
 
   <!-- Add/Edit Pet Pic on Pet profile view -->
   <section class="pet-edit" ng-show="viewChoice == 'petPhoto'">
-    <img src="#" class="user-pet-pic" alt="Image preview...">
+    <img src="#" id="userPetPic" class="user-pet-pic" alt="Image preview...">
     <button ng-click="photoUpload()">
       {{#c_upload callback="save_url"}}
       <input type="file" class="btn-pic-upload" value="Upload A Picture">

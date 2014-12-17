@@ -6,11 +6,12 @@ $color3: #C65F00         !default; // Medium Brown
 $color4: #793A00         !default; // Deep Brown
 $color5: #22AD2E         !default; // Deep Green
 $color6: #C80005         !default; // Red
+$color7: #000000         !default; // Black
 
 // Derivative colors
 // -------------------------
 $darker-color1:           darken($color1, 10%) !default;
-$darker2-color1:          darken($color1, 40%) !default;
+$darker2-color1:          darken($color1, 30%) !default;
 
 $darker-color2:           darken($color2, 10%) !default;
 $darker2-color2:          darken($color2, 25%) !default;
@@ -39,10 +40,18 @@ $lighter2-color5:         lighten($color5, 25%) !default;
 $lighter-color6:          lighten($color6, 10%) !default;
 $lighter2-color6:         lighten($color6, 25%) !default;
 
+$lighter-color7:          lighten($color7, 10%) !default;
+$lighter2-color7:         lighten($color7, 25%) !default;
+$lighter3-color7:         lighten($color7, 40%) !default;
+
+
 // Color Use Configuration
 //----------------------------
-$accept-color: $lighter2-color5   !default;
-$reject-color: $color6            !default;
+$accept-color: $lighter2-color5         !default;
+$accept-color-active: $color5           !default;
+$reject-color: $color6                  !default;
+$reject-color-active: $darker2-color6   !default;
+
 
 $inverse-text: $color2            !default; //For white text on dark backgrounds
 

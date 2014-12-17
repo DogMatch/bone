@@ -1,3 +1,5 @@
+//Persistent Header items
+
 .logo-flex
   @include add-webkit-v(display, flex)
   @include add-webkit-p(flex-direction, row)
@@ -19,24 +21,13 @@
   background-color: $top-bar-bgcolor
   color: $inverse-text
 
-.nav-like
-  font-size: $large-point-size
-  font-family: $heading-font-family
-  text-align: center
-  float: right
-  position: relative
-  top: -2.5em
-  right: 1em
-  @media screen and (min-width : $large-screen-min-width)
-    top: 0.25em
-
+//Landing Page
 
 .landing
   padding: 0.2em
   background-image: Url("/images/blurDogBG1.jpg")
   background-repeat: no-repeat
   background-size: cover
-
 
 .landing-title
   text-align: center
@@ -49,43 +40,4 @@
     width: 49%
 
 
-//NAV Sections -- some individual classes for items that act like them will need to be added as well
 
-
-.desktop-nav
-  padding: 0.5em 0 0.3em 0
-  color: $color2
-  display: none
-  @media screen and (min-width : $large-screen-min-width)
-    display: block
-
-.nav-flex-container
-  @include add-webkit-v(display, flex)
-  @include add-webkit-p(flex-direction, row)
-  @include add-webkit-p(flex-wrap, wrap)
-  @include add-webkit-p(justify-content, space-around)
-  @include add-webkit-p(align-items, flex-start)
-  @include add-webkit-p(align-content, center)
-
-.mobile-nav
-  padding-bottom: 0.3em
-  position: fixed
-  bottom: 0
-  width: 100%
-  margin-top: 2%
-  background-color: $footer-color
-  @media screen and (min-width : $large-screen-min-width)
-    display: none
-
-.mobile-nav, .desktop-nav
-  & li
-    font-family: $heading-font-family
-    font-size: $small-point-size
-    text-align: center
-    // width: 19.9%
-    // display: inline
-    // float: left
-
-.mobile-nav, .desktop-nav
-  & p
-    font-size: $large-point-size
