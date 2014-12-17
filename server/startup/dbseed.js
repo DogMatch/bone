@@ -5,6 +5,10 @@ Meteor.startup(function () {
   //Dogs.update({}, {$addToSet: {randomize: Math.random()}}, {multi: true});
 
   var userCount = Meteor.users.find().count();
+  var dogCount = Dogs.find().count();
+  console.log('users: ' + userCount);
+  console.log('dogs: ' + dogCount);
+
   if ( userCount === 0) {
     console.log('Seeding data!');
     var usersSeed = []
@@ -30,9 +34,8 @@ Meteor.startup(function () {
     }));
     userCount = Meteor.users.find().count();
   }
-  console.log(userCount);
 
-  if (Dogs.find().count() === 0) {
+  if (dogCount === 0) {
     var names = [
       "Ada",
       "Grace",
@@ -58,6 +61,7 @@ Meteor.startup(function () {
         bio: "",
         test: "",
         age: Math.floor(Random.fraction()*10),
+        randomize: Math.random(),
         user_id: (usersSeed[i] || usersSeed[0])
       });
     };
