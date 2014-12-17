@@ -1,8 +1,15 @@
 angular.module("boneApp").controller("DogProfileCtrl", ['$scope','$collection', '$location', function($scope, $collection, $location){
-  $collection(Dogs).bind($scope, 'Dogs', true, true);
+  $collection(Dogs, {user_id: Meteor.userId()}).bind($scope, 'dogs', true, true);
   $collection(Images).bind($scope, 'Images', true, true);
   $scope.selfie = Images[0];
   $scope.viewChoice = 'petProfile';
+  if (!Meteor.userId()) {
+    $location.path('/');
+  } 
+
+  if(!$scope.dogs){
+    petEdit();
+  }
 
 $scope.petEdit = function() {
   $scope.viewChoice = 'petEdit';
@@ -25,9 +32,11 @@ $scope.dogData = function() {
     age: $scope.Dogs.age,
     sex: $scope.Dogs.sex,
     breed: $scope.Dogs.breed,
-    fan: [],
-    friend: [],
-    foe: []
+    user_id: Meteor.userId(),
+    randomize: Math.random(),
+    upVotes: [],
+    downVotes: [],
+    matches: []
   });
 };
 
