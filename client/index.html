@@ -1,38 +1,34 @@
 <head>
   <meta charset="utf-8">
   <title>Bone</title>
-  <link href='http://fonts.googleapis.com/css?family=Fjord+One|Lato:400,400italic,700|Chivo:400,400italic,900' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="BoneLogo.png">
+  <link href='http://fonts.googleapis.com/css?family=Fjord+One|Lato:400,400italic,700|Chivo:400,400italic,900' rel='stylesheet' type='text/css'>
   <base href="/">
 </head>
 <body>
-  <header>
-    <section class="top-bar">
-      <!-- Logo image -->
-      <section class="logo-flex">
-        <figure class="logo">
-          <img src="/BoneLogoIvory.svg" alt="Bone">
-          <figcaption>Bone App</figcaption>
-        </figure>
-      </section>
-      <div class="edit_done nav-like icon-checkmark">
-        <p>edit</p>
-      </div>
-      <nav class="desktop-nav">
-        <ul class="nav-flex-container">
-          <li class="nav-item"><p class="icon-home"></p>Profile</li>
-          <li class="nav-item"><p  class="icon-bubbles"></p>Messages</li>
-          <li class="nav-item"><p class="icon-heart"></p>Match Up</li>
-          <li class="nav-item"><p class="icon-cog"></p>Settings</li>
-          <li class="nav-item"><p class="icon-mail"></p>Invite</li>
-          <li class="nav-item header-button"><p class="icon-checkmark"></p>Edit</li>
-          <!-- Sixth item for desktop function button -->
-        </ul>
-      </nav>
+  <header class="top-bar">
+    <section class="logo-flex">
+      <figure class="logo">
+        <img src="/BoneLogoIvory.svg" alt="Bone">
+        <figcaption>Bone App</figcaption>
+      </figure>
     </section>
+    <div class="header-button-mobile icon-checkmark">
+      <p>edit</p>
+    </div>
+    <nav class="desktop-nav">
+      <ul class="nav-flex-container">
+        <li class="nav-item" tabindex="0"><p class="icon-home"></p>Profile</li>
+        <li class="nav-item" tabindex="0"><p  class="icon-bubbles"></p>Messages</li>
+        <li class="nav-item" tabindex="0"><p class="icon-heart"></p>Match Up</li>
+        <li class="nav-item" tabindex="0"><p class="icon-cog"></p>Settings</li>
+        <li class="nav-item" tabindex="0"><p class="icon-mail"></p>Invite</li>
+        <li class="nav-item header-button" tabindex="0"><p class="icon-checkmark"></p>Edit</li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="landing">
+  <main ui-view class="landing">
     <!-- H1 will be the text over the background image. the dots the show the slider I'm not sure if those require thier own tag or if they are done all in CSS -->
     <h1 tabindex="0" class="landing-title">Welcome to Bone!</h1>
     <p>Bone is for the dogs! Find your dog a match in your area in the style of human dating apps. This isn't necessarily a dog dating app but for finding other dogs in your area to make connections and hang out with. Don't be gross, people.</p>
