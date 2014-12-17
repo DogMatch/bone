@@ -2,6 +2,8 @@ Meteor.startup(function () {
   //Meteor.users.remove({});
   //Dogs.remove({});
 
+  //Dogs.update({}, {$addToSet: {randomize: Math.random()}}, {multi: true});
+
   var userCount = Meteor.users.find().count();
   if ( userCount === 0) {
     console.log('Seeding data!');
@@ -54,7 +56,7 @@ Meteor.startup(function () {
         breed: breeds[i],
         sex: "",
         bio: "",
-        test: "", 
+        test: "",
         age: Math.floor(Random.fraction()*10),
         user_id: (usersSeed[i] || usersSeed[0])
       });
