@@ -1,8 +1,7 @@
 Meteor.startup(function () {
-  //Meteor.users.remove({});
-  //Dogs.remove({});
 
-  //Dogs.update({}, {$addToSet: {randomize: Math.random()}}, {multi: true});
+  // Meteor.users.remove({});
+  // Dogs.remove({});
 
   var userCount = Meteor.users.find().count();
   var dogCount = Dogs.find().count();
@@ -59,9 +58,11 @@ Meteor.startup(function () {
         breed: breeds[i],
         sex: "",
         bio: "",
-        test: "",
         age: Math.floor(Random.fraction()*10),
         randomize: Math.random(),
+        upVotes: [],
+        downVotes: [],
+        matches: [],
         user_id: (usersSeed[i] || usersSeed[0])
       });
     };

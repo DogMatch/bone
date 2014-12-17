@@ -1,6 +1,6 @@
 //NAV Sections -- some individual classes for items that act like them will need to be added as well
 
-.nav-like
+.header-button-mobile
   font-size: $large-point-size
   font-family: $heading-font-family
   text-align: center
@@ -9,14 +9,20 @@
   top: -2.5em
   right: 1em
   @media screen and (min-width : $large-screen-min-width)
-    top: 0.25em
+    display: none
+
+.header-button, .header-button-mobile
+  color: $accept-color
+  &:hover
+    color: $accept-color-active
 
 .desktop-nav
   padding: 0.5em 0 0.3em 0
   color: $color2
-  display: none
-  @media screen and (min-width : $large-screen-min-width)
-    display: block
+  .nav-item
+    display: none
+    @media screen and (min-width : $large-screen-min-width)
+      display: block
 
 .nav-flex-container
   @include add-webkit-v(display, flex)
@@ -26,8 +32,14 @@
   @include add-webkit-p(align-items, flex-start)
   @include add-webkit-p(align-content, center)
 
+.nav-item
+  @include add-webkit-p(flex, "0, 1, auto")
+  // @include add-webkit-p(align-self, auto)
+  &:hover
+    color: $color5
+
 .mobile-nav
-  padding-bottom: 0.3em
+  padding: 0.25em 0 0.25em 0
   position: fixed
   bottom: 0
   width: 100%
@@ -41,10 +53,5 @@
     font-family: $heading-font-family
     font-size: $small-point-size
     text-align: center
-    // width: 19.9%
-    // display: inline
-    // float: left
-
-.mobile-nav, .desktop-nav
   & p
     font-size: $large-point-size

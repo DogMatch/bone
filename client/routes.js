@@ -16,8 +16,9 @@ angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$loca
     })
     .state('match', {
       url: "/match",
-      template: UiRouter.template("match.html"),
-      controller: "matchCtrl"
+      template: UiRouter.template("match-view.html"),
+      controller: "MatchCtrl"
+
     });
 
     $urlRouterProvider.otherwise('/main');
