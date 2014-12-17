@@ -41,7 +41,10 @@ $lighter2-color6:         lighten($color6, 25%) !default;
 
 // Color Use Configuration
 //----------------------------
-$accept-color: $lighter2-color5;
-$reject-color: $color6;
+$accept-color: $lighter2-color5   !default;
+$reject-color: $color6            !default;
 
+$inverse-text: $color2            !default; //For white text on dark backgrounds
 
+$top-bar-bgcolor: $color4         !default;
+$footer-color: $color2            !default;
