@@ -15,17 +15,17 @@ angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$loca
       controller: "DogProfileCtrl"
     })
     .state('dogPic', {
-      url: "dogpic",
+      url: "/dogpic",
         template: UiRouter.template("edit-dog-pic.html"),
         controller: "DogProfileCtrl"
       })
     .state('editDogInfo', {
-        url: 'dogstats',
+        url: '/dogstats',
         template: UiRouter.template("edit-dog-info.html"),
         controller: "DogProfileCtrl"
       })
     .state('dogBio', {
-        url: 'dogbio',
+        url: '/dogbio',
         template: UiRouter.template("dog-bio.html"),
         controller: "DogProfileCtrl"
       })

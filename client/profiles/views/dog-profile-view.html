@@ -3,10 +3,12 @@
   <!-- Main View of pet profile page -->
   <section class="user-pet-profile">
     <!-- Pet image -->
-    <img src="#" class="user-pet-pic">
+    <img src=[[selfie]] class="user-pet-pic" alt='Dog pic'>
+
     <!-- Pet info - Name, Age, Sex, Breed -->
-    <H3 class="user-pet-info"></H3>
+    <H3 class="user-pet-info">[[Dogs[0].name]] [[Dogs[0].age]] [[Dogs[0].breed]]
+    </H3>
     <!-- Pet Description -->
-    <p class="user-pet-description"></p>
+    <p class="user-pet-description">[[Dogs[0.].bio]]</p>
   </section>
 </template>
