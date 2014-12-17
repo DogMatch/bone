@@ -1,0 +1,13 @@
+  <template name='edit-dog-pic.html'>
+  <!-- Add/Edit Pet Pic on Pet profile view -->
+  <section class="pet-edit">
+    <img src=" " class="user-pet-pic" alt="Image preview...">
+    {{#c_upload callback="save_url"}}
+    <input type="file" id='onloadend' ng-click="photoUpload()" class="btn-pic-upload" value="Upload A Picture">
+    {{/c_upload}}
+    <!-- Need to find a way to style the button or input to say "upload image" and call type=file -->
+    <button>upload</button>
+    <button class="btn-cancel">Cancel</button>
+    <button class="btn-confirm">Save</button>
+  </section>
+</template>

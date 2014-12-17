@@ -1,5 +1,5 @@
 
-<template name="dog-profile-view.html">
+<template name='dog-profile-view.html'>
   <!-- Main View of pet profile page -->
   <section class="user-pet-profile">
     <!-- Pet image -->
@@ -9,40 +9,4 @@
     <!-- Pet Description -->
     <p class="user-pet-description"></p>
   </section>
-
-
-<!-- Add/Edit Pet Pic on Pet profile view -->
-  <section class="pet-edit">
-    <img src=" " class="user-pet-pic" alt="Image preview...">
-    {{#c_upload callback="save_url"}}
-    <input type="file" id='onloadend' ng-click="photoUpload()" class="btn-pic-upload" value="Upload A Picture">
-    {{/c_upload}}
-    <!-- Need to find a way to style the button or input to say "upload image" and call type=file -->
-    <button>upload</button>
-    <button class="btn-cancel">Cancel</button>
-    <button class="btn-confirm">Save</button>
-  </section>
-
-<!-- Add/Edit Pet Info on Pet Profile View -->
-  <section class="pet-edit">
-    <section class="pet-edit-console">
-      <input type="text" data-ng-model="Dogs.name" placeholder="Dog Name">
-      <input type="number" data-ng-model="Dogs.age" placeholder="4">
-      <select type="text" data-ng-model="Dogs.sex">
-        <option value="female">Female</option>
-        <option value="male">Male</option>
-      </select>
-      <input type="text" data-ng-model="Dogs.breed" placeholder="Dog breed">
-    </section>
-  </section>
-
-<!-- Add/Edit Pet Description on Pet Profile View -->
-  <section class="pet-edit">
-    <section class="pet-edit-console">
-      <input type="text" data-ng-model="Dogs.description" class="pet-description" placeholder="Share a little bit more about your dog.">
-      <button class="btn-cancel">Cancel</button>
-      <button class="btn-confirm">Save</button>
-    </section>
-  </section>
-
 </template>
