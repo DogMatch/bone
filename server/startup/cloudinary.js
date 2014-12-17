@@ -1,5 +1,5 @@
 Meteor.startup(function () {
-  
+
   Cloudinary.config({
     cloud_name: 'bone',
     api_key: '327823257725943',
