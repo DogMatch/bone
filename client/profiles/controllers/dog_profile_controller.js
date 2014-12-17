@@ -5,7 +5,7 @@ angular.module("boneApp").controller("DogProfileCtrl", ['$scope','$collection', 
   $scope.viewChoice = 'petProfile';
   if (!Meteor.userId()) {
     $location.path('/');
-  } 
+  }
 
   if(!$scope.dogs){
     petEdit();
@@ -38,6 +38,7 @@ $scope.dogData = function() {
     downVotes: [],
     matches: []
   });
+  $scope.viewChoice = 'petProfile';
 };
 
   $scope.description = function() {

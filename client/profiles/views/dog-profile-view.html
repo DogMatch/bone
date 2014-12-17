@@ -9,7 +9,7 @@
     <H3 class="user-pet-info" ng-click="petEdit()">[[Dogs[0].name]] [[Dogs[0].age]] [[Dogs[0].breed]]
     </H3>
     <!-- Pet Description -->
-    <p class="user-pet-description">[[Dogs[0.].bio]]</p>
+    <p class="user-pet-description" ng-click='petBio()' alt="Longer Pet description here.">[[Dogs[0.].bio]]</p>
   </section>
 
   <!-- Add/Edit Pet Info on Pet Profile View -->
@@ -23,7 +23,6 @@
       </select>
       <input type="text" data-ng-model="Dogs.breed" placeholder="Dog breed">
       <button ng-click='dogData()'>Submit</button>
-      <button ng-click='petBio()'>Add a Pet Description</button>
     </section>
   </section>
 
