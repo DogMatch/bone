@@ -16,6 +16,10 @@ $scope.petBio = function() {
   $scope.viewChoice = 'petDescription';
 };
 
+$scope.petMain = function() {
+  $scope.viewChoice = 'petProfile';
+};
+
 $scope.dogData = function() {
   Dogs.insert({name: $scope.Dogs.name,
     age: $scope.Dogs.age,

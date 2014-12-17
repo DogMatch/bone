@@ -3,14 +3,13 @@
   <!-- Main View of pet profile page -->
   <section class="user-pet-profile" ng-show="viewChoice == 'petProfile'">
     <!-- Pet image -->
-    <img src=[[selfie]] class="user-pet-pic" alt='Dog pic'>
+    <img src=[[selfie]] class="user-pet-pic" ng-click='petPhoto()' alt='Dog pic click to upload photo'>
 
     <!-- Pet info - Name, Age, Sex, Breed -->
-    <H3 class="user-pet-info">[[Dogs[0].name]] [[Dogs[0].age]] [[Dogs[0].breed]]
+    <H3 class="user-pet-info" ng-click="petEdit()">[[Dogs[0].name]] [[Dogs[0].age]] [[Dogs[0].breed]]
     </H3>
     <!-- Pet Description -->
     <p class="user-pet-description">[[Dogs[0.].bio]]</p>
-    <button ng-click="petEdit()">Edit Pet Info</button>
   </section>
 
   <!-- Add/Edit Pet Info on Pet Profile View -->
@@ -24,7 +23,6 @@
       </select>
       <input type="text" data-ng-model="Dogs.breed" placeholder="Dog breed">
       <button ng-click='dogData()'>Submit</button>
-      <button ng-click='petPhoto()'>Edit Pet Photo</button>
       <button ng-click='petBio()'>Add a Pet Description</button>
     </section>
   </section>
@@ -38,16 +36,15 @@
       {{/c_upload}}
       <!-- Need to find a way to style the button or input to say "upload image" and call type=file -->
       upload</button>
-      <button class="btn-cancel">Cancel</button>
-      <button class="btn-confirm">Save</button>
-      <button ng-click="petBio()">Add a Pet Description</button>
+      <button class="btn-cancel" ng-click="petMain()">Cancel</button>
+      <button class="btn-confirm" ng-click="photoUpload()">Save</button>
     </section>
 
     <!-- Add/Edit Pet Description on Pet Profile View -->
     <section class="pet-edit" ng-show="viewChoice == 'petDescription'">
       <section class="pet-edit-console">
         <input type="text" data-ng-model="Dogs.description" class="pet-description" placeholder="Share a little bit more about your dog.">
-        <button class="btn-cancel">Cancel</button>
+        <button class="btn-cancel" ng-click="petMain()">Cancel</button>
         <button class="btn-confirm" ng-click="description()">Save</button>
       </section>
     </section>
