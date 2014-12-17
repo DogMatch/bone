@@ -1,11 +1,10 @@
 angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
   $scope.alerts = [];
-  $scope.curUser = {};
+  $scope.curUser = Meteor.user();
   $scope.viewChoice = 'signed-out';
   if (Meteor.userId()) {
     $scope.viewChoice = 'signed-in';
     console.log(Meteor.user());
-    $scope.curUser.email = Meteor.user().emails[0].address;
   }
   console.log(Meteor.userId());
   console.log($scope.viewChoice);

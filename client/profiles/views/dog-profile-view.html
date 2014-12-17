@@ -1,15 +1,14 @@
-<template name="dog-profile-view.html">
-<h4>Tell us about your dog.</h4>
-  <label>Name</label>
-  <input type="text" data-ng-model="Dogs.name">
-  <label> Pet Description</label>
-  <input type="text" data-ng-model="Dogs.description">
-  <label>Age</label>
-  <input type="text" data-ng-model="Dogs.age">
-  <label>Sex</label>
-  <input type="text" data-ng-model="Dogs.sex">
-  <label>Breed</label>
-  <input type="text" data-ng-model="Dogs.breed">
-  <input type="file" id='onloadend' ng-click="photoUpload()"><br>
-  <img src="" height="200" alt="Image preview...">
+
+<template name='dog-profile-view.html'>
+  <!-- Main View of pet profile page -->
+  <section class="user-pet-profile">
+    <!-- Pet image -->
+    <img src=[[selfie]] class="user-pet-pic" alt='Dog pic'>
+
+    <!-- Pet info - Name, Age, Sex, Breed -->
+    <H3 class="user-pet-info">[[Dogs[0].name]] [[Dogs[0].age]] [[Dogs[0].breed]]
+    </H3>
+    <!-- Pet Description -->
+    <p class="user-pet-description">[[Dogs[0.].bio]]</p>
+  </section>
 </template>
