@@ -1,0 +1,43 @@
+//Persistent Header items
+
+.logo-flex
+  @include add-webkit-v(display, flex)
+  @include add-webkit-p(flex-direction, row)
+  @include add-webkit-p(flex-wrap, nowrap)
+  @include add-webkit-p(justify-content, center)
+  @include add-webkit-p(align-items, center)
+  @include add-webkit-p(align-content, center)
+
+.logo
+  @include add-webkit-p(flex, "0, 1, auto")
+  width: 4em
+  padding-top: 0.3em
+  padding-bottom: 0.4em
+  // margin: 0 auto
+  & figcaption
+    display: none
+
+.top-bar
+  background-color: $top-bar-bgcolor
+  color: $inverse-text
+
+//Landing Page
+
+.landing
+  padding: 0.2em
+  background-image: Url("/images/blurDogBG1.jpg")
+  background-repeat: no-repeat
+  background-size: cover
+
+.landing-title
+  text-align: center
+  padding-bottom: 0.2em
+
+.landing-btns
+  padding: 1.5%
+  & button
+    display: inline
+    width: 49%
+
+
+

@@ -1,0 +1,14 @@
+/*Flex*/
+.main-nav
+  padding: 1.5% 0
+  @include add-webkit-v(display, flex)
+  @include add-webkit-p(flex-direction, row)
+  @include add-webkit-p(flex-wrap, wrap)
+  @include add-webkit-p(justify-content, space-around)
+  @include add-webkit-p(align-items, baseline)
+  @include add-webkit-p(align-content, center)
+
+.main-nav__item
+  padding: 1% 1.5%
+  @include add-webkit-p(flex, "0, 1, auto")
+  @include add-webkit-p(align-self, auto)

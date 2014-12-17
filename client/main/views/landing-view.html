@@ -1,0 +1,38 @@
+<template name="landing-view.html">
+  <img src="/images/bone.jpg" width="350" height="350" alt="Bone"><br>
+  [[alerts.split()]]
+  <section ng-show="viewChoice == 'signed-out'">
+    <button type="button" ng-click="viewChoice = 'facebook'">Facebook</button>
+    <button type="button" ng-click="viewChoice = 'sign-in'">Sign In</button>
+    <button type="button" ng-click="viewChoice = 'sign-up'">Sign Up</button>
+  </section>
+
+  <section ng-show="viewChoice == 'signed-in'">
+    <button type="button" ng-click="signOutUser()">Sign Out</button>
+    <button type="button" ng-click="$scope.viewChoice='edit-pass'">Edit Pass</button>
+  </section>
+  
+  <section ng-show="viewChoice == 'sign-in'">
+    <input type="text" placeholder="email" ng-model="user.email">
+    <input type="password" placeholder="password" ng-model="user.password">
+    <button type="button" ng-click="backToLanding()">Cancel</button>
+    <button type="button" ng-click="signInUser()">Done</button>
+  </section>
+  
+  <section ng-show="viewChoice == 'sign-up'">
+    <input type="text" placeholder="email" ng-model="newUser.email">
+    <input type="password" placeholder="password" ng-model="newUser.password">
+    <input type="password" placeholder="password confirm" ng-model="newUser.passwordConfirm">
+    <button type="button" ng-click="backToLanding()">Cancel</button>
+    <button type="button" ng-click="createUser()">Done</button>
+  </section>
+
+  <section ng-show="viewChoice == 'edit-pass'">
+    <input type="text" placeholder="email" ng-model="curUser.email">
+    <input type="text" placeholder="old password" ng-model="curUser.passwordNew">
+    <input type="password" placeholder="new password" ng-model="curUser.passwordNew">
+    <input type="password" placeholder="password confirm" ng-model="curUser.passwordConfirm">
+    <button type="button" ng-click="backToLanding()">Cancel</button>
+    <button type="button" ng-click="updateUser()">Done</button>
+  </section>
+</template>
