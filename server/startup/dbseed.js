@@ -59,7 +59,6 @@ Meteor.startup(function () {
         breed: breeds[i],
         sex: "",
         bio: "",
-        test: "",
         age: Math.floor(Random.fraction()*10),
         randomize: Math.random(),
         user_id: (usersSeed[i] || usersSeed[0])
