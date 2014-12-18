@@ -1,16 +1,16 @@
 <template name="landing-view.html">
+  <p ng-repeat="err in errors" style="color: red; font-size: 50%;">[[err]]</p>
   <section class="landing">
     <section class="landing-info" ng-hide="viewChoice == 'sign-in' || viewChoice == 'sign-up'">
       <h1 tabindex="0" class="landing-title">Welcome to Bone!</h1>
       <p>Bone is for the dogs! Find your dog a match in your area in the style of human dating apps. This isn't necessarily a dog dating app but for finding other dogs in your area to make connections and hang out with. Don't be gross, people.</p>
     </section>
 
-    [[alerts.split()]]
-    <section data-ng-show="viewChoice == 'signed-out'" class="landing-sign">
-      <section class="btns-wrapper">
-  <!--       <button data-ng-click="viewChoice = 'facebook'" class="icon-facebook facebook-btn">&nbsp;Facebook</button> -->
-        <button data-ng-click="viewChoice = 'sign-in'">Sign In</button>
-        <button data-ng-click="viewChoice = 'sign-up'">Sign Up</button>
+    <section ng-show="viewChoice == 'signed-out'" class="landing-sign">
+      <section class="landing-btns">
+        <button ng-click="viewChoice = 'facebook'" class="icon-facebook facebook-btn">&nbsp;Facebook</button>
+        <button ng-click="viewChoice = 'sign-in'">Sign In</button>
+        <button ng-click="viewChoice = 'sign-up'">Sign Up</button>
       </section>
     </section>
 

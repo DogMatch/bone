@@ -1,8 +1,8 @@
 'use strict';
 Meteor.startup(function() {
 
-  // Meteor.users.remove({});
-  // Dogs.remove({});
+   // Meteor.users.remove({});
+   // Dogs.remove({});
 
   var userCount = Meteor.users.find().count();
   var dogCount = Dogs.find().count();
@@ -12,6 +12,16 @@ Meteor.startup(function() {
   if (userCount === 0) {
     console.log('Seeding data!');
     var usersSeed = [];
+    usersSeed.push(Accounts.createUser({
+      username: 'erin',
+      email: 'e@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'hannah',
+      email: 'h@oo.com',
+      password: '123456'
+    }));
     usersSeed.push(Accounts.createUser({
       username: 'lance',
       email: 'l@oo.com',

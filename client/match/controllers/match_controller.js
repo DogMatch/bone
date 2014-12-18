@@ -1,5 +1,5 @@
-
-angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', '$collection', function($scope, $location, $collection) {
+'use strict';
+angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', function($scope, $location) {
 
   if (!Meteor.userId()) {
     $location.path('/');
@@ -7,7 +7,6 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', '$coll
     $scope.curUserId = Meteor.userId();
   }
   console.log($scope.curUserId);
-  var r;
 
   //$collection(Dogs, {user_id: $scope.curUserId}).bindOne($scope, 'myDog');
   $scope.myDog = Dogs.findOne({user_id: $scope.curUserId});
@@ -15,16 +14,17 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', '$coll
   
 
   $scope.getRandomDog = function() {
-    r = Math.random();
-    console.log(r);
+    var randNum = Math.random();
+    console.log(randNum);
     $scope.dog = Dogs.findOne({
-      randomize: {$lte: r},
+      randomize: {$lte: randNum},
       downVotes: {$nin: [$scope.curUserId]},
       _id: {$not: $scope.myDog._id}
     });
     if(!$scope.dog) {
+      console.log('GT')
       $scope.dog = Dogs.findOne({
-        randomize: {$gt: r},
+        randomize: {$gt: randNum},
         downVotes: {$nin: [$scope.curUserId]},
         _id: {$not: $scope.myDog._id}
       });
@@ -34,8 +34,13 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', '$coll
 
   $scope.upVote = function() {
     if ($scope.dog) {
-      if ($scope.dog.user_id)
-      Dogs.update({_id: $scope.dog._id}, {$addToSet: {upVotes: $scope.curUserId}});
+      Dogs.update({_id: $scope.dog._id}, {$addToSet: {upVotes: $scope.myDog.user_id}});
+      console.log((_.indexOf($scope.myDog.upVotes, $scope.dog.user_id)));
+      if (_.indexOf($scope.myDog.upVotes, $scope.dog.user_id) > -1) {
+        console.log('Match!!!!!');
+        Dogs.update({_id: $scope.dog._id}, {$addToSet: {matches: $scope.myDog.user_id}});
+        Dogs.update({_id: $scope.myDog._id}, {$addToSet: {matches: $scope.dog.user_id}});
+      }
     }
     $scope.getRandomDog();
   };
