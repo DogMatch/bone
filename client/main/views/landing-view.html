@@ -1,38 +1,54 @@
 <template name="landing-view.html">
-  <img src="/images/bone.jpg" width="350" height="350" alt="Bone"><br>
-  [[alerts.split()]]
-  <section ng-show="viewChoice == 'signed-out'">
-    <button type="button" ng-click="viewChoice = 'facebook'">Facebook</button>
-    <button type="button" ng-click="viewChoice = 'sign-in'">Sign In</button>
-    <button type="button" ng-click="viewChoice = 'sign-up'">Sign Up</button>
-  </section>
+  <section class="landing">
+    <section class="landing-info" ng-hide="viewChoice == 'sign-in' || viewChoice == 'sign-up'">
+      <h1 tabindex="0" class="landing-title">Welcome to Bone!</h1>
+      <p>Bone is for the dogs! Find your dog a match in your area in the style of human dating apps. This isn't necessarily a dog dating app but for finding other dogs in your area to make connections and hang out with. Don't be gross, people.</p>
+    </section>
 
-  <section ng-show="viewChoice == 'sign-in'">
-    <input type="text" placeholder="email" ng-model="user.email">
-    <input type="password" placeholder="password" ng-model="user.password">
-    <button type="button" ng-click="backToLanding()">Cancel</button>
-    <button type="button" ng-click="signInUser()">Done</button>
-  </section>
-  
-  <section ng-show="viewChoice == 'sign-up'">
-    <input type="text" placeholder="email" ng-model="newUser.email">
-    <input type="password" placeholder="password" ng-model="newUser.password">
-    <input type="password" placeholder="password confirm" ng-model="newUser.passwordConfirm">
-    <button type="button" ng-click="backToLanding()">Cancel</button>
-    <button type="button" ng-click="createUser()">Done</button>
-  </section>
+    [[alerts.split()]]
+    <section ng-show="viewChoice == 'signed-out'" class="landing-sign">
+      <section class="landing-btns">
+        <button ng-click="viewChoice = 'facebook'" class="icon-facebook facebook-btn">&nbsp;Facebook</button>
+        <button ng-click="viewChoice = 'sign-in'">Sign In</button>
+        <button ng-click="viewChoice = 'sign-up'">Sign Up</button>
+      </section>
+    </section>
 
-  <section ng-show="viewChoice == 'signed-in'">
-    <button type="button" ng-click="signOutUser()">Sign Out</button>
-    <button type="button" ng-click="$scope.viewChoice='edit-pass'">Edit Pass</button>
-  </section>
+    <section ng-show="viewChoice == 'sign-in'" class="landing-sign">
+      <input type="text" placeholder="email" ng-model="user.email">
+      <input type="password" placeholder="password" ng-model="user.password">
+      <section class="landing-btns">
+        <button ng-click="backToLanding()">Cancel</button>
+        <button ng-click="signInUser()">Done</button>
+      </section>
+    </section>
 
-  <section ng-show="viewChoice == 'edit-pass'">
-    <input type="text" placeholder="email" ng-model="curUser.email">
-    <input type="text" placeholder="old password" ng-model="curUser.passwordNew">
-    <input type="password" placeholder="new password" ng-model="curUser.passwordNew">
-    <input type="password" placeholder="password confirm" ng-model="curUser.passwordConfirm">
-    <button type="button" ng-click="backToLanding()">Cancel</button>
-    <button type="button" ng-click="updateUser()">Done</button>
-  </section>
+    <section ng-show="viewChoice == 'sign-up'" class="landing-sign">
+      <input type="text" placeholder="email" ng-model="newUser.email">
+      <input type="password" placeholder="password" ng-model="newUser.password">
+      <input type="password" placeholder="password confirm" ng-model="newUser.passwordConfirm">
+      <section class="landing-btns">
+        <button ng-click="backToLanding()">Cancel</button>
+        <button ng-click="createUser()">Done</button>
+      </section>
+    </section>
+
+    <section ng-show="viewChoice == 'signed-in'" class="landing-sign">
+      <section class="landing-btns">
+        <button ng-click="signOutUser()">Sign Out</button>
+        <button ng-click="$scope.viewChoice='edit-pass'">Edit Pass</button>
+      </section>
+    </section>
+
+    <section ng-show="viewChoice == 'edit-pass'" class="landing-sign">
+      <input type="text" placeholder="email" ng-model="curUser.email">
+      <input type="text" placeholder="old password" ng-model="curUser.passwordNew">
+      <input type="password" placeholder="new password" ng-model="curUser.passwordNew">
+      <input type="password" placeholder="password confirm" ng-model="curUser.passwordConfirm">
+      <section class="landing-btns">
+        <button ng-click="backToLanding()">Cancel</button>
+        <button ng-click="updateUser()">Done</button>
+      </section>
+    </section>
+</section>
 </template>
