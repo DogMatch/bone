@@ -52,6 +52,7 @@ $scope.dogData = function() {
     breed: $scope.dogs.breed,
     user_id: Meteor.userId(),
     bio: $scope.dogs.bio,
+    url: $scope.dogs.url,
     randomize: Math.random(),
     upVotes: [],
     downVotes: [],
@@ -70,27 +71,10 @@ $scope.dogData = function() {
         self = this;
         var files = $("input.btn-pic-upload")[0].files;
         C.upload_stream(files,function(res){
-          console.log(res);
           console.log(res.secure_url);
-          Dogs.update({_id: $scope.dogs_id, url: res.secure_url});
+          $scope.dogs.url = res.secure_url;
+          Dogs.update({_id: $scope.dogs_id, url: $scope.dogs.url});
+
         });
-
-
-
-    //var preview = document.getElementById('userPetPic'); //selects the query named img
-    //var file    = document.querySelector('input[type=file]').files[0]; //sames as here
-    //var reader  = new FileReader();
-    //$scope.viewChoice = 'petProfile';
-
-    //reader.onloadend = function () {
-    //  preview.src = reader.result;
-      //};
-
-      //if (file) {
-      //  reader.readAsDataURL(file); //reads the data as a URL
-
-      //} else {
-      //  preview.src = "";
-      //}
     };
 }]);

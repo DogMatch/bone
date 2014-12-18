@@ -4,7 +4,7 @@
   <!-- Main View of pet profile page -->
   <section class="user-pet-profile" ng-show="viewChoice == 'petProfile'">
     <!-- Pet image -->
-    <img src='' class="user-pet-pic" ng-click='petPhoto()' alt='Dog pic click to upload photo'>
+    <img src='[[dogs.url]]' class="user-pet-pic" ng-click='petPhoto()' alt='Dog pic click to upload photo'>
     <!-- Pet info - Name, Age, Sex, Breed -->
     <h3 class="user-pet-info" ng-click="petEdit()" >[[dogs.name]] [[dogs.age]] [[dogs.breed]]</h3>
     <!-- Pet Description -->
@@ -30,7 +30,7 @@
   <!-- Add/Edit Pet Pic on Pet profile view -->
   <section class="pet-edit" ng-show="viewChoice == 'petPhoto'">
     <img src="#" id="userPetPic" class="user-pet-pic" alt="Image preview...">
-    <button ng-click="photoUpload()">
+    <button>
       {{#c_upload callback="save_url"}}
       <input type="file" class="btn-pic-upload" value="Upload A Picture">
       {{/c_upload}}
@@ -45,7 +45,7 @@
       <section class="pet-edit-console">
         <input type="text" data-ng-model="dogs.bio" class="pet-description" placeholder="Share a little bit more about your dog.">
         <button class="btn-cancel" ng-click="viewChoice = 'petProfile'; dogs.bio = tempBio">Cancel</button>
-        <button class="btn-confirm" ng-click="description()">Save</button>
+        <button class="btn-confirm" ng-click="description(); viewChoice = 'petProfile'">Save</button>
       </section>
     </section>
   </template>
