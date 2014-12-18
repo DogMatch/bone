@@ -17,8 +17,7 @@ console.log($scope.mydog);
     $scope.mydog.sex = "";
     $scope.mydog.bio = "Click here to add description";
     $scope.mydog.url = "";
-    console.log($scope.mydog);
-    $scope.viewChoice = 'petEdit';
+    $scope.viewChoice = 'petProfile';
   } else {$scope.viewChoice = 'petProfile';}
 
 $scope.petEdit = function() {
@@ -46,18 +45,20 @@ $scope.dogData = function() {
     return;
   }
   console.log('post error check');
+
   Dogs.insert({name: $scope.mydog.name,
-    age: $scope.mydog.age,
-    sex: $scope.mydog.sex,
-    breed: $scope.mydog.breed,
-    user_id: Meteor.userId(),
-    bio: $scope.mydog.bio,
-    url: $scope.mydog.url,
-    randomize: Math.random(),
-    upVotes: [],
-    downVotes: [],
-    matches: []
-  });
+      age: $scope.mydog.age,
+      sex: $scope.mydog.sex,
+      breed: $scope.mydog.breed,
+      user_id: Meteor.userId(),
+      bio: $scope.mydog.bio,
+      url: $scope.mydog.url,
+      randomize: Math.random(),
+      upVotes: [],
+      downVotes: [],
+      matches: []
+      });
+
   $scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
   $scope.viewChoice = 'petProfile';
 };
@@ -74,7 +75,7 @@ $scope.dogData = function() {
           console.log(res.secure_url);
           $scope.mydog.url = res.secure_url;
           console.log($scope.mydog._id, $scope.mydog.url);
-          Dogs.update({'_id': $scope.mydog._id}, { $set: {'url': res.secure_url}}, function(err, res) {console.log(err, res);});
+          Dogs.update({_id: $scope.mydog._id}, { $set: {url: res.secure_url}}, function(err, res) {console.log(err, res);});
 
           $scope.viewChoice = 'petProfile';
         });
