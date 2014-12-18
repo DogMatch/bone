@@ -8,7 +8,9 @@
     <!-- Pet info - Name, Age, Sex, Breed -->
     <h3 class="user-pet-info" ng-click="petEdit()" >[[dogs.name]] [[dogs.age]] [[dogs.breed]]</h3>
     <!-- Pet Description -->
-    <p class="user-pet-description" ng-click='petBio()'>[[dogs.bio]]</p>
+    <section class="user-pet-description" ng-click='petBio()'>
+      <p>[[dogs.bio]]</p>
+    </section>
   </section>
 
   <!-- Add/Edit Pet Info on Pet Profile View -->
