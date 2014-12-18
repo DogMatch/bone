@@ -1,33 +1,7 @@
 .match-pet-profile
   width: 100%
-
-.match-pet-pic
-  width: 80%
-  border: .125em solid $color7
-  max-width: 25em
-  min-height: 14em
-  background-color: $color1
-  margin-left: auto
-  margin-right: auto
-  margin-top: 5%
-
-.match-pet-info
-  width: 80%
-  font-size: 1.5em
-  color: $color7
-  margin: 2% auto
-  text-transform: uppercase
-  text-align: left
-
-.match-pet-description
-  width: 80%
-  border: .125em solid $color7
-  background-color: $color1
-  border-radius: .5em
-  margin: 2% auto
-
-.match-pet-description p
-  padding: .625em
+  .user-pet-info
+    text-align: center
 
 .match-description-btn
   width: 40%
@@ -35,15 +9,24 @@
   @include add-webkit-v(display, flex)
   background-color: grey
   font-size: .625em
-
-.match-description-btn button
-  text-align: center
+  & button
+    text-align: center
 
 .match-choice
   width: 80%
   margin: 2% auto
   @include add-webkit-v(display, flex)
+  @include add-webkit-p(flex-direction, row)
+  @include add-webkit-p(flex-wrap, wrap)
+  @include add-webkit-p(justify-content, space-around)
+  @include add-webkit-p(align-items, center)
+  @include add-webkit-p(align-content, center)
+  // @media screen and (min-width : $large-screen-min-width)
 
+.bark-yes, .yelp-no
+  // @include add-webkit-p(flex, "0, 1")
+  width: 40%
+  // @include add-webkit-p(flex-basis, 12em)
 
 
 

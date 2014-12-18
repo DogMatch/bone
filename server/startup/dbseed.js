@@ -1,7 +1,7 @@
 'use strict';
 Meteor.startup(function() {
-      //Meteor.users.remove({});
-      //Dogs.remove({});
+      // Meteor.users.remove({});
+      // Dogs.remove({});
 
   var userCount = Meteor.users.find().count();
   var dogCount = Dogs.find().count();
@@ -61,6 +61,22 @@ Meteor.startup(function() {
       'Aussie',
       'Aussie'
     ];
+    var sexes = [
+      'M',
+      'F',
+      'M',
+      'F',
+      'M',
+      'M'
+    ];
+    var bios = [
+      "I'm sassy!",
+      "fart-machine",
+      "I can see through time",
+      "Hewwwo wooold",
+      "I love parks and long walks",
+      "Love me, human!"
+    ]
 
     var urls = ['http://res.cloudinary.com/bone/image/upload/v1418769938/eseheoiiidctjdyhmfay.jpg',
     'http://res.cloudinary.com/bone/image/upload/v1418769877/ja9qkisv8xmvwzgyqhcb.jpg',
@@ -74,8 +90,8 @@ Meteor.startup(function() {
         name: names[i],
         breed: breeds[i],
         url: urls[i],
-        sex: '',
-        bio: '',
+        sex: sexes[i],
+        bio: bios[i],
         age: Math.floor(Random.fraction() * 10),
         randomize: Math.random(),
         upVotes: [],
