@@ -17,7 +17,7 @@
   <!-- Add/Edit Pet Info on Pet Profile View -->
   <section class="pet-edit" data-ng-show="viewChoice == 'petEdit'">
     <section class="pet-edit-console">
-      <input type="text" data-ng-model="mydog.name" placeholder="dog name">
+      <input autofocus type="text" data-ng-model="mydog.name" placeholder="dog name">
       <input type="number" data-ng-model="mydog.age" placeholder="age">
       <input type="text" data-ng-model="mydog.breed" placeholder="dog breed">
       <section class="styled-select">
@@ -36,26 +36,27 @@
 
   <!-- Add/Edit Pet Pic on Pet profile view -->
   <section class="pet-edit" data-ng-show="viewChoice == 'petPhoto'">
-    <img src="#" id="userPetPic" class="user-pet-pic" alt="Image preview...">
+    <img src='[[mydog.url]]' id="userPetPic" class="user-pet-pic" alt="Image preview...">
     <section class="btns-wrapper">
-      <button>
-        {{#c_upload callback="save_url"}}
-        <input type="file" class="btn-pic-upload" value="Upload A Picture">
+      <label for="petPicUpload" class="pet-pic-upload clearfix">
+        <input type="file" id="petPicUpload" class="btn-pic-upload" value="Upload A Picture" onchange="this.nextElementSibling.textContent =  this.files[0].name">
+      {{#c_upload callback="save_url"}}
         {{/c_upload}}
         <!-- Need to find a way to style the button or input to say "upload image" and call type=file -->
-        upload</button>
-        <button class="btn-confirm" data-ng-click="photoUpload()">Save</button>
-        <button class="cancel" data-ng-click="viewChoice = 'petProfile'">Cancel</button>
-      </section>
+        <p>Upload Photo</p>
+      </label>
+      <button class="btn-confirm" data-ng-click="photoUpload()">Save</button>
+      <button class="cancel" data-ng-click="viewChoice = 'petProfile'">Cancel</button>
     </section>
+  </section>
 
   <!-- Add/Edit Pet Bio on Pet Profile View -->
   <section class="pet-edit" data-ng-show="viewChoice == 'petDescription'">
     <section class="pet-edit-console">
-      <textarea rows="5" data-ng-model="dogs.bio" class="pet-description" placeholder="Share a little bit more about your dog."></textarea>
+      <textarea autofocus rows="5" data-ng-model="mydog.bio" class="pet-description" placeholder="Share a little bit more about your dog."></textarea>
       <section class="btns-wrapper">
         <button class="btn-confirm" data-ng-click="description(); viewChoice = 'petProfile'">Save</button>
-        <button class="cancel" data-ng-click="viewChoice = 'petProfile'; dogs.bio = tempBio">Cancel</button>
+        <button class="cancel" data-ng-click="viewChoice = 'petProfile'; mydog.bio = tempBio">Cancel</button>
       </section>
     </section>
   </section>

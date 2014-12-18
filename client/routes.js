@@ -20,6 +20,11 @@ angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$loca
       template: UiRouter.template("match-view.html"),
       controller: "MatchCtrl"
     })
+    .state('messages', {
+      url: "/messages",
+      template: UiRouter.template("messages-view.html"),
+      controller: "MessagesCtrl"
+    })
     .state('settings', {
       url: "/settings",
       template: UiRouter.template("landing-view.html"),
