@@ -15,7 +15,7 @@ console.log($scope.mydog);
     $scope.mydog.age = null;
     $scope.mydog.breed = "";
     $scope.mydog.sex = "";
-    $scope.mydog.bio = "Click here to add description";
+    $scope.mydog.bio = "";
     $scope.mydog.url = "";
     $scope.viewChoice = 'petProfile';
   } else {$scope.viewChoice = 'petProfile';}
@@ -45,7 +45,7 @@ $scope.dogData = function() {
     return;
   }
   console.log('post error check');
-
+if (!$scope.mydog._id) {
   Dogs.insert({name: $scope.mydog.name,
       age: $scope.mydog.age,
       sex: $scope.mydog.sex,
@@ -58,6 +58,26 @@ $scope.dogData = function() {
       downVotes: [],
       matches: []
       });
+    } else {
+      Dogs.update({
+        _id: $scope.mydog._id
+      },
+      { $set:
+        {
+          name: $scope.mydog.name,
+          age: $scope.mydog.age,
+          sex: $scope.mydog.sex,
+          breed: $scope.mydog.breed,
+          user_id: Meteor.userId(),
+          bio: $scope.mydog.bio,
+          url: $scope.mydog.url,
+          randomize: Math.random(),
+          upVotes: [],
+          downVotes: [],
+          matches: []
+        }
+      });
+    }
 
   $scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
   $scope.viewChoice = 'petProfile';
