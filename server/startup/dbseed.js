@@ -1,8 +1,7 @@
 'use strict';
 Meteor.startup(function() {
-
-   // Meteor.users.remove({});
-   // Dogs.remove({});
+      //Meteor.users.remove({});
+      //Dogs.remove({});
 
   var userCount = Meteor.users.find().count();
   var dogCount = Dogs.find().count();
