@@ -20,4 +20,22 @@ button:hover
   background-color: $color6
 
 .cancel:hover
-  background-color: $color6
+  background-color: $darker-color6
+
+.btns-wrapper
+  @include add-webkit-v(display, flex)
+  @include add-webkit-p(flex-direction, row)
+  @include add-webkit-p(flex-wrap, wrap)
+  @include add-webkit-p(justify-content, space-around)
+  @include add-webkit-p(align-items, flex-start)
+  @include add-webkit-p(align-content, center)
+  button
+    margin: 0.8em 0.2em 0 0.2em
+    // width: 12em
+    @include add-webkit-p(flex, "0, 1")
+    @include add-webkit-p(flex-basis, 12em)
+    @include add-webkit-p(align-self, auto)
+    //Media query to put 'Cancel' button on the left in Desktop
+    @media screen and (min-width : $large-screen-min-width)
+      &.cancel
+        order: -1
