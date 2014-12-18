@@ -29,7 +29,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
         // error: new account creation failed
       } else {
         // success: new account created
-        $location.path('/dog');
+        $location.path('/profile');
       }
     });
   };
@@ -47,7 +47,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
         // error: new account creation failed
       } else {
         // success: new account created
-        $location.path('/dog');
+        $location.path('/profile');
       }
     });
   };
@@ -61,7 +61,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
         // error: ther was a problem signing in with facebook
       } else {
         // success: signed in with facbook
-        $location.path('/dog');
+        $location.path('/profile');
       }
     });
   };
@@ -77,7 +77,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
         // error: there was a problem signing in
       } else {
         // success: signed in
-        $location.path('/dog');
+        $location.path('/profile');
       }
     });
   };

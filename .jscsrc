@@ -1,4 +1,5 @@
 {
+  "excludeFiles": [".meteor/**", "test/**"],
   "preset": "airbnb",
   "requireMultipleVarDecl": null,
   "validateQuoteMarks": true,
