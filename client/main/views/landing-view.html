@@ -14,40 +14,40 @@
       </section>
     </section>
 
-    <section ng-show="viewChoice == 'sign-in'" class="landing-sign">
-      <input type="text" placeholder="email" ng-model="user.email">
-      <input type="password" placeholder="password" ng-model="user.password">
-      <section class="landing-btns">
-        <button ng-click="backToLanding()">Cancel</button>
-        <button ng-click="signInUser()">Done</button>
+    <section data-ng-show="viewChoice == 'sign-in'" class="landing-sign">
+      <input type="text" placeholder="email" data-ng-model="user.email">
+      <input type="password" placeholder="password" data-ng-model="user.password">
+      <section class="btns-wrapper">
+        <button data-ng-click="signInUser()">Done</button>
+        <button class="cancel" data-ng-click="backToLanding()">Cancel</button>
       </section>
     </section>
 
-    <section ng-show="viewChoice == 'sign-up'" class="landing-sign">
-      <input type="text" placeholder="email" ng-model="newUser.email">
-      <input type="password" placeholder="password" ng-model="newUser.password">
-      <input type="password" placeholder="password confirm" ng-model="newUser.passwordConfirm">
-      <section class="landing-btns">
-        <button ng-click="backToLanding()">Cancel</button>
-        <button ng-click="createUser()">Done</button>
+    <section data-ng-show="viewChoice == 'sign-up'" class="landing-sign">
+      <input type="text" placeholder="email" data-ng-model="newUser.email">
+      <input type="password" placeholder="password" data-ng-model="newUser.password">
+      <input type="password" placeholder="password confirm" data-ng-model="newUser.passwordConfirm">
+      <section class="btns-wrapper">
+        <button data-ng-click="createUser()">Done</button>
+        <button class="cancel" data-ng-click="backToLanding()">Cancel</button>
       </section>
     </section>
 
-    <section ng-show="viewChoice == 'signed-in'" class="landing-sign">
-      <section class="landing-btns">
-        <button ng-click="signOutUser()">Sign Out</button>
-        <button ng-click="$scope.viewChoice='edit-pass'">Edit Pass</button>
+    <section data-ng-show="viewChoice == 'signed-in'" class="landing-sign">
+      <section class="btns-wrapper">
+        <button data-ng-click="signOutUser()">Sign Out</button>
+        <button data-ng-click="$scope.viewChoice='edit-pass'">Edit Pass</button>
       </section>
     </section>
 
-    <section ng-show="viewChoice == 'edit-pass'" class="landing-sign">
-      <input type="text" placeholder="email" ng-model="curUser.email">
-      <input type="text" placeholder="old password" ng-model="curUser.passwordNew">
-      <input type="password" placeholder="new password" ng-model="curUser.passwordNew">
-      <input type="password" placeholder="password confirm" ng-model="curUser.passwordConfirm">
-      <section class="landing-btns">
-        <button ng-click="backToLanding()">Cancel</button>
-        <button ng-click="updateUser()">Done</button>
+    <section data-ng-show="viewChoice == 'edit-pass'" class="landing-sign">
+      <input type="text" placeholder="email" data-ng-model="curUser.email">
+      <input type="text" placeholder="old password" data-ng-model="curUser.passwordNew">
+      <input type="password" placeholder="new password" data-ng-model="curUser.passwordNew">
+      <input type="password" placeholder="password confirm" data-ng-model="curUser.passwordConfirm">
+      <section class="btns-wrapper">
+        <button class="confirm" data-ng-click="updateUser()">Done</button>
+        <button class="cancel" data-ng-click="backToLanding()">Cancel</button>
       </section>
     </section>
 </section>
