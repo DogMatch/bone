@@ -1,3 +1,4 @@
+'use strict';
 Dogs = new Meteor.Collection('dogs');
 
 Images = new Meteor.Collection("images", {

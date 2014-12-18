@@ -1,3 +1,4 @@
+'use strict';
 angular.module('boneApp', ['angular-meteor', 'ui.router']);
 
 Meteor.startup(function() {
