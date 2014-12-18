@@ -1,6 +1,6 @@
 'use strict';
 angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
-  $scope.alerts = [];
+  $scope.errors = [];
   $scope.curUser = Meteor.user();
   $scope.viewChoice = 'signed-out';
   if (Meteor.userId()) {
