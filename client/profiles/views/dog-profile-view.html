@@ -37,16 +37,17 @@
   <!-- Add/Edit Pet Pic on Pet profile view -->
   <section class="pet-edit" data-ng-show="viewChoice == 'petPhoto'">
     <img src="#" id="userPetPic" class="user-pet-pic" alt="Image preview...">
-    <button ng-click="photoUpload()">
     <section class="btns-wrapper">
-      {{#c_upload callback="save_url"}}
+      <button>
+        {{#c_upload callback="save_url"}}
         <input type="file" class="btn-pic-upload" value="Upload A Picture">
         {{/c_upload}}
         <!-- Need to find a way to style the button or input to say "upload image" and call type=file -->
-      upload</button>
-      <button class="cancel" data-ng-click="viewChoice = 'petProfile'">Cancel</button>
+        upload</button>
+        <button class="btn-confirm" data-ng-click="photoUpload()">Save</button>
+        <button class="cancel" data-ng-click="viewChoice = 'petProfile'">Cancel</button>
+      </section>
     </section>
-  </section>
 
   <!-- Add/Edit Pet Bio on Pet Profile View -->
   <section class="pet-edit" data-ng-show="viewChoice == 'petDescription'">
