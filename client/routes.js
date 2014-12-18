@@ -9,8 +9,8 @@ angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$loca
       template: UiRouter.template("landing-view.html"),
       controller: "LandingCtrl"
     })
-    .state('dogProfile', {
-      url: "/dog",
+    .state('profile', {
+      url: "/profile",
       template: UiRouter.template("dog-profile-view.html"),
       controller: "DogProfileCtrl"
     })
@@ -18,7 +18,11 @@ angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$loca
       url: "/match",
       template: UiRouter.template("match-view.html"),
       controller: "MatchCtrl"
-
+    })
+    .state('settings', {
+      url: "/settings",
+      template: UiRouter.template("landing-view.html"),
+      controller: "LandingCtrl"
     });
 
     $urlRouterProvider.otherwise('/main');
