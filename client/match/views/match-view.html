@@ -1,15 +1,15 @@
 <template name="match-view.html">
   <section class="match-pet-profile">
     <section id="picBox">
-      <img src="[[dog.url]]" height="200" width="200" alt="[[dog.name]]" class="match-pet-pic">
-      <p class="match-pet-info"> [[dog.name]], Age: [[dog.age]], [[dog.sex]], [[dog.breed]] </p>
-      <p class="match-pet-description">[[dog.bio]]</p>
+      <img src="[[dog.url]]" alt="[[dog.name]]" class="user-pet-pic">
+      <h4 class="user-pet-info"> [[dog.name]], Age: [[dog.age]], [[dog.sex]], [[dog.breed]] </h4>
+      <p class="user-pet-description">[[dog.bio]]</p>
       <button class="match-description-btn" ng-click="getMoreInfo()">Info</button>
     </section>
 
-    <section class="match-choice">
-      <button ng-click="upVote()" class="confirm">Bark!</button>
-      <button ng-click="downVote()" class="cancel">Yipe!</button>
+    <section class="match-choice btns-wrapper">
+      <button ng-click="upVote()" class="icon-checkmark bark-yes">Bark!</button>
+      <button ng-click="downVote()" class="icon-x yelp-no cancel">Yipe!</button>
     </section>
   </section>
 </template>
