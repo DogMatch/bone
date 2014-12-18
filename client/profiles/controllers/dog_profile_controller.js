@@ -1,10 +1,11 @@
+'use strict';
 angular.module("boneApp").controller("DogProfileCtrl", ['$scope','$collection', '$location', function($scope, $collection, $location){
   if (!Meteor.userId()) {
     $location.path('/');
   } else {
     $scope.curUserId = Meteor.userId;
   }
-  $scope.errors = []
+  $scope.errors = [];
   $scope.dogs = Dogs.findOne({user_id: Meteor.userId()});
   //$collection(Dogs, {user_id: Meteor.userId()}).bind($scope, 'dogs', true, true);
   //$scope.selfie = dogs.url;
@@ -68,7 +69,7 @@ $scope.dogData = function() {
   };
 
   $scope.photoUpload = function() {
-        self = this;
+        var self = this;
         var files = $("input.btn-pic-upload")[0].files;
         C.upload_stream(files,function(res){
           console.log(res.secure_url);

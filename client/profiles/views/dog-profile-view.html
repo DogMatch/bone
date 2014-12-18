@@ -42,10 +42,10 @@
       <button class="btn-confirm" ng-click="photoUpload()">Save</button>
     </section>
 
-    <!-- Add/Edit Pet Description on Pet Profile View -->
+    <!-- Add/Edit Pet Bio on Pet Profile View -->
     <section class="pet-edit" ng-show="viewChoice == 'petDescription'">
       <section class="pet-edit-console">
-        <input type="text" data-ng-model="dogs.bio" class="pet-description" placeholder="Share a little bit more about your dog.">
+        <textarea rows="5" data-ng-model="dogs.bio" class="pet-description" placeholder="Share a little bit more about your dog."></textarea>
         <button class="btn-cancel" ng-click="viewChoice = 'petProfile'; dogs.bio = tempBio">Cancel</button>
         <button class="btn-confirm" ng-click="description(); viewChoice = 'petProfile'">Save</button>
       </section>

@@ -1,0 +1,9 @@
+{
+  "excludeFiles": [".meteor/**", "test/**"],
+  "preset": "airbnb",
+  "requireMultipleVarDecl": null,
+  "validateQuoteMarks": true,
+  "disallowMultipleVarDecl": true,
+  "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
+  "disallowQuotedKeysInObjects": "allButReserved"
+}
