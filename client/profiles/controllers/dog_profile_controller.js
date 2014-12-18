@@ -14,6 +14,7 @@ console.log($scope.dogs);
     $scope.dogs.age = 0;
     $scope.dogs.breed = "";
     $scope.dogs.bio = "Click here to add description";
+    $scope.dogs.url = "";
     console.log($scope.dogs);
     $scope.viewChoice = 'petEdit';
   } else {$scope.viewChoice = 'petProfile';}
@@ -30,10 +31,6 @@ $scope.petBio = function() {
   $scope.tempBio =$scope.dogs.bio;
   $scope.dogs.bio = "";
   $scope.viewChoice = 'petDescription';
-};
-
-$scope.petMain = function() {
-  $scope.viewChoice = 'petProfile';
 };
 
 $scope.dogData = function() {
@@ -53,24 +50,35 @@ $scope.dogData = function() {
 };
 
   $scope.description = function() {
-    Dogs.update({bio: $scope.dogs.bio});
+    Dogs.update({_id: $scope.dogs_id, bio: $scope.dogs.bio});
+    $scope.viewChoice = 'petProfile';
   };
 
   $scope.photoUpload = function() {
-    var preview = document.getElementById('userPetPic'); //selects the query named img
-    var file    = document.querySelector('input[type=file]').files[0]; //sames as here
-    var reader  = new FileReader();
-    $scope.petMain();
+        self = this;
+        var files = $("input.btn-pic-upload")[0].files;
+        C.upload_stream(files,function(res){
+          console.log(res);
+          console.log(res.secure_url);
+          Dogs.update({_id: $scope.dogs_id, url: res.secure_url});
+        });
 
-    reader.onloadend = function () {
-      preview.src = reader.result;
-      };
 
-      if (file) {
-        reader.readAsDataURL(file); //reads the data as a URL
 
-      } else {
-        preview.src = "";
-      }
+    //var preview = document.getElementById('userPetPic'); //selects the query named img
+    //var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+    //var reader  = new FileReader();
+    //$scope.viewChoice = 'petProfile';
+
+    //reader.onloadend = function () {
+    //  preview.src = reader.result;
+      //};
+
+      //if (file) {
+      //  reader.readAsDataURL(file); //reads the data as a URL
+
+      //} else {
+      //  preview.src = "";
+      //}
     };
 }]);
