@@ -47,7 +47,7 @@ $scope.dogData = function() {
     return;
   }
   console.log('post error check');
-  $scope.dogId = Dogs.insert({name: $scope.dogs.name,
+  Dogs.insert({name: $scope.dogs.name,
     age: $scope.dogs.age,
     sex: $scope.dogs.sex,
     breed: $scope.dogs.breed,
@@ -64,18 +64,18 @@ $scope.dogData = function() {
 };
 
   $scope.description = function() {
-    Dogs.update({_id: $scope.dogs_id, bio: $scope.dogs.bio});
+    Dogs.update({_id: $scope.dogs._id}, {bio: $scope.dogs.bio});
     $scope.viewChoice = 'petProfile';
   };
 
   $scope.photoUpload = function() {
-        var self = this;
+        //var self = this;
         var files = $("input.btn-pic-upload")[0].files;
         C.upload_stream(files,function(res){
           console.log(res.secure_url);
           $scope.dogs.url = res.secure_url;
-          Dogs.update({_id: $scope.dogs_id, url: $scope.dogs.url});
-
+          console.log($scope.dogs._id, $scope.dogs.url);
+          Dogs.update({'_id': $scope.dogs._id}, { $set: {'url': res.secure_url}}, function(err, res) {console.log(err, res);});
         });
     };
 }]);
