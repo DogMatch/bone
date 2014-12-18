@@ -1,3 +1,4 @@
+'use strict';
 angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
   function($urlRouterProvider, $stateProvider, $locationProvider) {
 
@@ -25,5 +26,5 @@ angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$loca
       controller: "LandingCtrl"
     });
 
-    $urlRouterProvider.otherwise('/main');
+  $urlRouterProvider.otherwise('/main');
 }]);

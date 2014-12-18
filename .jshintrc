@@ -1,0 +1,89 @@
+//.jshintrc
+{
+
+    "maxerr"        : 50,       // {int} Maximum error before stopping
+
+  "globalstrict": true,
+  "quotmark": false,
+  "smarttabs": true,
+  "trailing": true,
+  "undef": true,
+  "unused": true,
+  "indent": 2,
+  "node": true,
+  "browser": true,
+
+    // Environments
+    "browser"       : true,     // Web Browser (window, document, etc)
+    "couch"         : false,    // CouchDB
+    "devel"         : true,     // Development/debugging (alert, confirm, etc)
+    "dojo"          : false,    // Dojo Toolkit
+    "jquery"        : false,    // jQuery
+    "mootools"      : false,    // MooTools
+    "node"          : false,    // Node.js
+    "nonstandard"   : false,    // Widely adopted globals (escape, unescape, etc)
+    "prototypejs"   : false,    // Prototype and Scriptaculous
+    "rhino"         : false,    // Rhino
+    "worker"        : false,    // Web Workers
+    "wsh"           : false,    // Windows Scripting Host
+    "yui"           : false,    // Yahoo User Interface
+    //"meteor"        : false,    // Meteor.js
+
+    // Legacy
+    "nomen"         : false,    // true: Prohibit dangling `_` in variables
+    "onevar"        : false,    // true: Allow only one `var` statement per function
+    "passfail"      : false,    // true: Stop on first error
+    "white"         : false,    // true: Check against strict whitespace and indentation rules
+
+    // Custom globals, from http://docs.meteor.com, in the order they appear there
+    "globals"       : {
+      "Meteor": false,
+      "DDP": false,
+      "Mongo": false, //Meteor.Collection renamed to Mongo.Collection
+      "Session": false,
+      "Accounts": false,
+      "Template": false,
+      "Blaze": false,  //UI is being renamed Blaze
+      "UI": false,
+      "Match": false,
+      "check": false,
+      "Tracker": false, //Deps renamed to Tracker
+      "Deps": false,
+      "ReactiveVar": false,
+      "EJSON": false,
+      "HTTP": false,
+      "Email": false,
+      "Assets": false,
+      "Handlebars": false,      // https://github.com/meteor/meteor/wiki/Handlebars
+      "Package": false,
+
+      // Meteor internals
+      "DDPServer": false,
+      "global": false,
+      "Log": false,
+      "MongoInternals": false,
+      "process": false,
+      "WebApp": false,
+      "WebAppInternals": false,
+
+      // globals useful when creating Meteor packages
+      "Npm": false,
+      "Tinytest": false,
+
+      // common Meteor packages
+      "Random": false,
+      "_": false,               // Underscore.js
+      "$": false,               // jQuery
+      "Router": false,          // iron-router
+      "angular": false,
+      "UiRouter": false,
+      "Cloudinary": false,
+      "Images": false,
+      
+      // collections for this app
+      "Dogs": false,
+      "Messages": false,
+      "Images": false
+      
+    }
+}

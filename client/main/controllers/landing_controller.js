@@ -1,3 +1,4 @@
+'use strict';
 angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
   $scope.alerts = [];
   $scope.curUser = Meteor.user();
@@ -7,7 +8,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
   }
 
   $scope.backToLanding = function() {
-    console.log('back to / ')
+    console.log('back to / ');
     if (Meteor.userId) {
       $scope.viewChoice = 'signed-out';
     } else {
@@ -28,7 +29,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
         // error: new account creation failed
       } else {
         // success: new account created
-        $location.path('/dog');
+        $location.path('/profile');
       }
     });
   };
@@ -46,7 +47,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
         // error: new account creation failed
       } else {
         // success: new account created
-        $location.path('/dog');
+        $location.path('/profile');
       }
     });
   };
@@ -60,7 +61,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
         // error: ther was a problem signing in with facebook
       } else {
         // success: signed in with facbook
-        $location.path('/dog');
+        $location.path('/profile');
       }
     });
   };
@@ -76,7 +77,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
         // error: there was a problem signing in
       } else {
         // success: signed in
-        $location.path('/dog');
+        $location.path('/profile');
       }
     });
   };
@@ -95,9 +96,9 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
 
   var trimInput = function(val) {
       return val.replace(/^\s*|\s*$/g, "");
-  }
+  };
   var isValidPassword = function(val) {
        return val.length >= 6 ? true : false;
-  }
+  };
 
 }]);
