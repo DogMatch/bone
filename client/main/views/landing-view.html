@@ -7,11 +7,6 @@
     <button type="button" ng-click="viewChoice = 'sign-up'">Sign Up</button>
   </section>
 
-  <section ng-show="viewChoice == 'signed-in'">
-    <button type="button" ng-click="signOutUser()">Sign Out</button>
-    <button type="button" ng-click="$scope.viewChoice='edit-pass'">Edit Pass</button>
-  </section>
-  
   <section ng-show="viewChoice == 'sign-in'">
     <input type="text" placeholder="email" ng-model="user.email">
     <input type="password" placeholder="password" ng-model="user.password">
@@ -25,6 +20,11 @@
     <input type="password" placeholder="password confirm" ng-model="newUser.passwordConfirm">
     <button type="button" ng-click="backToLanding()">Cancel</button>
     <button type="button" ng-click="createUser()">Done</button>
+  </section>
+
+  <section ng-show="viewChoice == 'signed-in'">
+    <button type="button" ng-click="signOutUser()">Sign Out</button>
+    <button type="button" ng-click="$scope.viewChoice='edit-pass'">Edit Pass</button>
   </section>
 
   <section ng-show="viewChoice == 'edit-pass'">
