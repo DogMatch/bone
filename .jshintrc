@@ -81,7 +81,9 @@
       "Images": false,
       
       // collections for this app
-      "Dogs": false
+      "Dogs": false,
+      "Messages": false,
+      "Images": false
       
     }
 }

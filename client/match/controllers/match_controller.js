@@ -7,7 +7,7 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', functi
     $scope.curUserId = Meteor.userId;
   }
   
-  var r
+  var r;
 
   $scope.myDogId = Dogs.find({user_id: $scope.curUserId}, {_id: 1});
 

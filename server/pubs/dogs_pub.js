@@ -1,5 +1,5 @@
 'use strict';
-Meteor.publish("dogProfiles", function () {
-  if(!this.userId) return null;
+Meteor.publish('dogProfiles', function() {
+  if (!this.userId) return null;
   return Dogs.find();
 });

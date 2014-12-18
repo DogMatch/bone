@@ -1,5 +1,5 @@
 'use strict';
-Meteor.startup(function () {
+Meteor.startup(function() {
 
   Cloudinary.config({
     cloud_name: 'bone',
@@ -8,7 +8,7 @@ Meteor.startup(function () {
   });
 
   Meteor.methods({
-    save_url:function(image){
+    save_url:function(image) {
       console.log(image);
       Dogs.insert(image.upload_data);
     }
