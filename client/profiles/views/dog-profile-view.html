@@ -41,12 +41,13 @@
     <section class="btns-wrapper">
       <label for="petPicUpload" class="pet-pic-upload clearfix">
         <input type="file" id="petPicUpload" class="btn-pic-upload" value="Upload A Picture" onchange="this.nextElementSibling.textContent =  this.files[0].name">
-      {{#c_upload callback="save_url"}}
+        {{#c_upload callback="save_url"}}
         {{/c_upload}}
         <!-- Need to find a way to style the button or input to say "upload image" and call type=file -->
-        <p>Upload Photo</p>
+        <p>Select File</p>
       </label>
-      <button class="btn-confirm" data-ng-click="photoUpload()">Save</button>
+      <button class="btn-confirm" data-ng-click="photoUpload()">Upload File</button>
+      <button class="btn-confirm" data-ng-click="viewChoice = 'petProfile'">Save</button>
       <button class="cancel" data-ng-click="viewChoice = 'petProfile'">Cancel</button>
     </section>
   </section>
