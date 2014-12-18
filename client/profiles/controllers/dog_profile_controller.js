@@ -38,10 +38,10 @@ $scope.petBio = function() {
 
 $scope.dogData = function() {
   $scope.errors = [];
-  if (!$scope.dogs.sex) $scope.errors.push('Choose a sex');
-  if (!$scope.dogs.age) $scope.errors.push('Invalid age');
-  if (!$scope.dogs.breed) $scope.errors.push('Add a breed');
-  if (!$scope.dogs.name) $scope.errors.push('Add a name');
+  if (!$scope.dogs.name) $scope.errors.push('Add a Name');
+  if (!$scope.dogs.age) $scope.errors.push('Invalid Age');
+  if (!$scope.dogs.breed) $scope.errors.push('Add a Breed');
+  if (!$scope.dogs.sex) $scope.errors.push('Choose a Sex');
   if ($scope.errors.length) {
     console.log($scope.errors);
     return;
