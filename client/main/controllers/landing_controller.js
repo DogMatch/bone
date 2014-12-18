@@ -1,3 +1,4 @@
+'use strict';
 angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
   $scope.alerts = [];
   $scope.curUser = Meteor.user();
@@ -10,7 +11,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
   console.log($scope.viewChoice);
   
   $scope.backToLanding = function() {
-    console.log('back to / ')
+    console.log('back to / ');
     if (Meteor.userId) {
       $scope.viewChoice = 'signed-out';
     } else {
@@ -98,9 +99,9 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
 
   var trimInput = function(val) {
       return val.replace(/^\s*|\s*$/g, "");
-  }
+  };
   var isValidPassword = function(val) {
        return val.length >= 6 ? true : false;
-  }
+  };
 
 }]);

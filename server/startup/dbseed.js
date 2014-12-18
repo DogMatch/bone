@@ -1,3 +1,4 @@
+'use strict';
 Meteor.startup(function () {
 
   // Meteor.users.remove({});
@@ -10,7 +11,7 @@ Meteor.startup(function () {
 
   if ( userCount === 0) {
     console.log('Seeding data!');
-    var usersSeed = []
+    var usersSeed = [];
     usersSeed.push(Accounts.createUser({
       username: 'lance',
       email: 'l@oo.com',
@@ -65,6 +66,6 @@ Meteor.startup(function () {
         matches: [],
         user_id: (usersSeed[i] || usersSeed[0])
       });
-    };
+    }
   }
 });

@@ -1,3 +1,4 @@
+'use strict';
 angular.module("boneApp").controller("DogProfileCtrl", ['$scope','$collection', '$location', function($scope, $collection, $location){
   $collection(Dogs).bind($scope, 'Dogs', true, true);
   $collection(Images).bind($scope, 'Images', true, true);

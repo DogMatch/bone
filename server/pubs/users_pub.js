@@ -1,3 +1,4 @@
+'use strict';
 Meteor.publish("allUserData", function () {
   if(!this.userId) return null;
   return Meteor.users.find({}, {fields: {

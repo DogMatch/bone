@@ -1,3 +1,4 @@
+'use strict';
 angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
   function($urlRouterProvider, $stateProvider, $locationProvider) {
 

@@ -1,3 +1,4 @@
+'use strict';
 angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', function($scope, $location) {
 
   if (!Meteor.userId()) {
