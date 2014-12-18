@@ -14,7 +14,7 @@ angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$loca
       template: UiRouter.template("dog-profile-view.html"),
       controller: "DogProfileCtrl"
     })
-    .state('match', {
+    .state('matchup', {
       url: "/matchup",
       template: UiRouter.template("match-view.html"),
       controller: "MatchCtrl"
