@@ -5,11 +5,8 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
   $scope.viewChoice = 'signed-out';
   if (Meteor.userId()) {
     $scope.viewChoice = 'signed-in';
-    console.log(Meteor.user());
   }
-  console.log(Meteor.userId());
-  console.log($scope.viewChoice);
-  
+
   $scope.backToLanding = function() {
     console.log('back to / ');
     if (Meteor.userId) {

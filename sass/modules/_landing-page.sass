@@ -1,0 +1,33 @@
+.landing-info
+  padding: 0.1em
+  p
+    padding: 0.5em
+    text-align: center
+
+.landing-title
+  padding: 0.3em
+  text-align: center
+  padding-bottom: 0.2em
+
+.landing-sign
+  padding: 1.5%
+  input
+    width: 90%
+    margin: 0.3em 0 0 5%
+    @media screen and (min-width : $large-screen-min-width)
+      width: 60%
+      margin-left: 20%
+
+.landing-btns
+  @include add-webkit-v(display, flex)
+  @include add-webkit-p(flex-direction, row)
+  @include add-webkit-p(flex-wrap, wrap)
+  @include add-webkit-p(justify-content, space-around)
+  @include add-webkit-p(align-items, flex-start)
+  @include add-webkit-p(align-content, center)
+  button
+    margin: 0.3em 0.2em 0 0.2em
+    // width: 12em
+    @include add-webkit-p(flex, "0, 1")
+    @include add-webkit-p(flex-basis, 12em)
+    @include add-webkit-p(align-self, auto)

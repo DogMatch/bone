@@ -53,10 +53,18 @@ Meteor.startup(function () {
       "Aussie"
     ];
 
+    var urls = ['http://res.cloudinary.com/bone/image/upload/v1418769938/eseheoiiidctjdyhmfay.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418769877/ja9qkisv8xmvwzgyqhcb.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418767579/ydalhps6pvwpxzppxbd8.jpg',
+    'https://cloudinary.com/console/media_library#/dialog/image/upload/ywbdshfvn2jen0urp7ik',
+    'http://www.metrodogstop.com/cms/wp-content/uploads/2013/05/cute-dog.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv6QqkDtXMV33USkXv4GG43SoPK6zbIwip700q0m9_WnAmYpnt' ];
+
     for (var i = 0; i < names.length; i++) {
       Dogs.insert({
         name: names[i],
         breed: breeds[i],
+        url: urls[i],
         sex: "",
         bio: "",
         age: Math.floor(Random.fraction()*10),

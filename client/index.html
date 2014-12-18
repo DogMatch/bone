@@ -13,62 +13,33 @@
         <figcaption>Bone App</figcaption>
       </figure>
     </section>
+    <!-- Unused feature
     <div class="header-button-mobile icon-checkmark">
       <p>edit</p>
-    </div>
+    </div> -->
     <nav class="desktop-nav">
       <ul class="nav-flex-container">
-        <li class="nav-item" tabindex="0"><p class="icon-home"></p>Profile</li>
-        <li class="nav-item" tabindex="0"><p  class="icon-bubbles"></p>Messages</li>
-        <li class="nav-item" tabindex="0"><p class="icon-heart"></p>Match Up</li>
-        <li class="nav-item" tabindex="0"><p class="icon-cog"></p>Settings</li>
-        <li class="nav-item" tabindex="0"><p class="icon-mail"></p>Invite</li>
-        <li class="nav-item header-button" tabindex="0"><p class="icon-checkmark"></p>Edit</li>
+        <li class="nav-item"><a href="profile"><p class="icon-star"></p>Profile</a></li>
+        <li class="nav-item"><a href="messages"><p class="icon-bubbles"></p>Messages</a></li>
+        <li class="nav-item"><a href="matchup"><p class="icon-heart"></p>Match Up</a></li>
+        <li class="nav-item"><a href="settings"><p class="icon-cog"></p>Settings</a></li>
+        <!-- Mail feature/extra button to potentially add
+        <li class="nav-item"><a href="invite"><p class="icon-mail"></p>Invite</a></li> -->
+        <!-- <li class="nav-item header-button" tabindex="0"><p class="icon-checkmark"></p>Edit</li> -->
       </ul>
     </nav>
   </header>
-
-  <main ui-view class="landing">
-    <!-- H1 will be the text over the background image. the dots the show the slider I'm not sure if those require thier own tag or if they are done all in CSS -->
-    <h1 tabindex="0" class="landing-title">Welcome to Bone!</h1>
-    <p>Bone is for the dogs! Find your dog a match in your area in the style of human dating apps. This isn't necessarily a dog dating app but for finding other dogs in your area to make connections and hang out with. Don't be gross, people.</p>
-    <h3>Join Us</h3>
-
-
-    <!-- This section will be for the sign up form. Show/Hide to be done with AngularJS -->
-    <!-- <section class="landing-form-signup">
-      <input type="text" placeholder="Username">
-      <input type="email" placeholder="example@gmail.com">
-      <input type="password" placeholder="Password">
-      <input type="password" placeholder="Re-enter your password">
-    </section> -->
-
-    <!-- This section will be for the sign in form. Show/Hide to be done with AngularJS -->
-    <section class="landing-form-signin">
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <select>
-          <option>Male</option>
-          <option>Female</option>
-      </select>
-    </section>
-    <!-- This secton is for the two buttons at the bottom of the page that wil be used for signing up or signing in -->
-
-    <section class="landing-btns">
-      <button class="sign-up">Sign Up</button>
-      <button class="sign-in">Sign In</button>
-    </section>
+  <main ui-view>
+    <!-- Where the client/main view comes in -->
   </main>
-
-    <!-- This section will be used for holding the nav and can be used for the rest of the site as a view module -->
   <footer>
     <nav class="mobile-nav">
       <ul class="nav-flex-container">
-        <li class="nav-item"><p class="icon-home"></p>Profile</li>
-        <li class="nav-item"><p  class="icon-bubbles"></p>Messages</li>
-        <li class="nav-item"><p class="icon-heart"></p>Match Up</li>
-        <li class="nav-item"><p class="icon-cog"></p>Settings</li>
-        <li class="nav-item"><p class="icon-mail"></p>Invite</li>
+        <li class="nav-item"><a href="profile"><p class="icon-star"></p>Profile</a></li>
+        <li class="nav-item"><a href="messages"><p class="icon-bubbles"></p>Messages</a></li>
+        <li class="nav-item"><a href="matchup"><p class="icon-heart"></p>Match Up</a></li>
+        <li class="nav-item"><a href="settings"><p class="icon-cog"></p>Settings</a></li>
+        <!-- <li class="nav-item"><a href="invite"><p class="icon-mail"></p>Invite</a></li> -->
       </ul>
     </nav>
   </footer>
