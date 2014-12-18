@@ -1,8 +1,22 @@
 angular.module("boneApp").controller("DogProfileCtrl", ['$scope','$collection', '$location', function($scope, $collection, $location){
-  $collection(Dogs).bind($scope, 'Dogs', true, true);
-  $collection(Images).bind($scope, 'Images', true, true);
-  $scope.selfie = Images[0];
-  $scope.viewChoice = 'petProfile';
+  if (!Meteor.userId()) {
+    $location.path('/');
+  } else {
+    $scope.curUserId = Meteor.userId;
+  }
+  $scope.dogs = Dogs.findOne({user_id: Meteor.userId()});
+  //$collection(Dogs, {user_id: Meteor.userId()}).bind($scope, 'dogs', true, true);
+  //$scope.selfie = dogs.url;
+console.log($scope.dogs);
+  if(!$scope.dogs){
+    $scope.dogs= {};
+    $scope.dogs.name = "";
+    $scope.dogs.age = 0;
+    $scope.dogs.breed = "";
+    $scope.dogs.bio = "Click here to add description";
+    console.log($scope.dogs);
+    $scope.viewChoice = 'petEdit';
+  } else {$scope.viewChoice = 'petProfile';}
 
 $scope.petEdit = function() {
   $scope.viewChoice = 'petEdit';
@@ -13,6 +27,8 @@ $scope.petPhoto = function() {
 };
 
 $scope.petBio = function() {
+  $scope.tempBio =$scope.dogs.bio;
+  $scope.dogs.bio = "";
   $scope.viewChoice = 'petDescription';
 };
 
@@ -21,24 +37,30 @@ $scope.petMain = function() {
 };
 
 $scope.dogData = function() {
-  Dogs.insert({name: $scope.Dogs.name,
-    age: $scope.Dogs.age,
-    sex: $scope.Dogs.sex,
-    breed: $scope.Dogs.breed,
-    fan: [],
-    friend: [],
-    foe: []
+  $scope.dogId = Dogs.insert({name: $scope.dogs.name,
+    age: $scope.dogs.age,
+    sex: $scope.dogs.sex,
+    breed: $scope.dogs.breed,
+    user_id: Meteor.userId(),
+    bio: $scope.dogs.bio,
+    randomize: Math.random(),
+    upVotes: [],
+    downVotes: [],
+    matches: []
   });
+  $scope.dogs = Dogs.findOne({user_id: Meteor.userId()});
+  $scope.viewChoice = 'petProfile';
 };
 
   $scope.description = function() {
-    Dogs.insert({bio: $scope.Dogs.description});
+    Dogs.update({bio: $scope.dogs.bio});
   };
 
   $scope.photoUpload = function() {
     var preview = document.getElementById('userPetPic'); //selects the query named img
     var file    = document.querySelector('input[type=file]').files[0]; //sames as here
     var reader  = new FileReader();
+    $scope.petMain();
 
     reader.onloadend = function () {
       preview.src = reader.result;

@@ -1,7 +1,7 @@
 <template name="match-view.html">
   <section class="match-pet-profile">
     <section id="picBox">
-      <img src="#" height="200" width="200" alt="[[dog.name]]" class="match-pet-pic">
+      <img src="[[dog.url]]" height="200" width="200" alt="[[dog.name]]" class="match-pet-pic">
       <p class="match-pet-info"> [[dog.name]] - [[dog.age]] - [[dog.breed]] </p>
       <p class="match-pet-description">[[dog.bio]]</p>
       <button ng-click="getMoreInfo()">Info</button>
