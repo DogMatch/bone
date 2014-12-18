@@ -4,23 +4,24 @@
   <!-- Main View of pet profile page -->
   <section class="user-pet-profile" data-ng-show="viewChoice == 'petProfile'">
     <!-- Pet image -->
-    <img src='[[dogs.url]]' class="user-pet-pic" data-ng-click='petPhoto()' alt='Dog pic click to upload photo'>
+
+    <img src='[[mydog.url]]' class="user-pet-pic" data-ng-click='petPhoto()' alt='Dog pic click to upload photo'>
     <!-- Pet info - Name, Age, Sex, Breed -->
-    <h3 class="user-pet-info" data-ng-click="petEdit()" >[[dogs.name]], Age:[[dogs.age]], [[dogs.sex]], [[dogs.breed]]</h3>
+    <h3 class="user-pet-info" data-ng-click="petEdit()" >[[mydog.name]], Age:[[mydog.age]], [[mydog.sex]], [[mydog.breed]]</h3>
     <!-- Pet Description -->
     <section class="user-pet-description" data-ng-click='petBio()'>
-      <p>[[dogs.bio]]</p>
+      <p>[[mydog.bio]]</p>
     </section>
   </section>
 
   <!-- Add/Edit Pet Info on Pet Profile View -->
   <section class="pet-edit" data-ng-show="viewChoice == 'petEdit'">
     <section class="pet-edit-console">
-      <input autofocus type="text" data-ng-model="dogs.name" placeholder="dog name">
-      <input type="number" data-ng-model="dogs.age" placeholder="age">
-      <input type="text" data-ng-model="dogs.breed" placeholder="dog breed">
+      <input autofocus type="text" data-ng-model="mydog.name" placeholder="dog name">
+      <input type="number" data-ng-model="mydog.age" placeholder="age">
+      <input type="text" data-ng-model="mydog.breed" placeholder="dog breed">
       <section class="styled-select">
-        <select data-ng-model="dogs.sex">
+        <select data-ng-model="mydog.sex">
           <option value="" disabled selected>choose sex</option>
           <option value="female" >Female</option>
           <option value="male">Male</option>
@@ -35,7 +36,7 @@
 
   <!-- Add/Edit Pet Pic on Pet profile view -->
   <section class="pet-edit" data-ng-show="viewChoice == 'petPhoto'">
-    <img src='[[dogs.url]]' id="userPetPic" class="user-pet-pic" alt="Image preview...">
+    <img src='[[mydog.url]]' id="userPetPic" class="user-pet-pic" alt="Image preview...">
     <section class="btns-wrapper">
       <label for="petPicUpload" class="pet-pic-upload clearfix">
         <input type="file" id="petPicUpload" class="btn-pic-upload" value="Upload A Picture" onchange="this.nextElementSibling.textContent =  this.files[0].name">
@@ -52,10 +53,10 @@
   <!-- Add/Edit Pet Bio on Pet Profile View -->
   <section class="pet-edit" data-ng-show="viewChoice == 'petDescription'">
     <section class="pet-edit-console">
-      <textarea autofocus rows="5" data-ng-model="dogs.bio" class="pet-description" placeholder="Share a little bit more about your dog."></textarea>
+      <textarea autofocus rows="5" data-ng-model="mydog.bio" class="pet-description" placeholder="Share a little bit more about your dog."></textarea>
       <section class="btns-wrapper">
         <button class="btn-confirm" data-ng-click="description(); viewChoice = 'petProfile'">Save</button>
-        <button class="cancel" data-ng-click="viewChoice = 'petProfile'; dogs.bio = tempBio">Cancel</button>
+        <button class="cancel" data-ng-click="viewChoice = 'petProfile'; mydog.bio = tempBio">Cancel</button>
       </section>
     </section>
   </section>
