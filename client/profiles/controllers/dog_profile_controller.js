@@ -4,6 +4,7 @@ angular.module("boneApp").controller("DogProfileCtrl", ['$scope','$collection', 
   } else {
     $scope.curUserId = Meteor.userId;
   }
+  $scope.errors = []
   $scope.dogs = Dogs.findOne({user_id: Meteor.userId()});
   //$collection(Dogs, {user_id: Meteor.userId()}).bind($scope, 'dogs', true, true);
   //$scope.selfie = dogs.url;
@@ -11,8 +12,9 @@ console.log($scope.dogs);
   if(!$scope.dogs){
     $scope.dogs= {};
     $scope.dogs.name = "";
-    $scope.dogs.age = 0;
+    $scope.dogs.age = null;
     $scope.dogs.breed = "";
+    $scope.dogs.sex = "";
     $scope.dogs.bio = "Click here to add description";
     $scope.dogs.url = "";
     console.log($scope.dogs);
@@ -34,6 +36,16 @@ $scope.petBio = function() {
 };
 
 $scope.dogData = function() {
+  $scope.errors = [];
+  if (!$scope.dogs.sex) $scope.errors.push('Choose a sex');
+  if (!$scope.dogs.age) $scope.errors.push('Invalid age');
+  if (!$scope.dogs.breed) $scope.errors.push('Add a breed');
+  if (!$scope.dogs.name) $scope.errors.push('Add a name');
+  if ($scope.errors.length) {
+    console.log($scope.errors);
+    return;
+  }
+  console.log('post error check');
   $scope.dogId = Dogs.insert({name: $scope.dogs.name,
     age: $scope.dogs.age,
     sex: $scope.dogs.sex,
