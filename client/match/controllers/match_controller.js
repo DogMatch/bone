@@ -1,15 +1,18 @@
-'use strict';
-angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', function($scope, $location) {
+
+angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', '$collection', function($scope, $location, $collection) {
 
   if (!Meteor.userId()) {
     $location.path('/');
   } else {
-    $scope.curUserId = Meteor.userId;
+    $scope.curUserId = Meteor.userId();
   }
-  
+  console.log($scope.curUserId);
   var r;
 
-  $scope.myDogId = Dogs.find({user_id: $scope.curUserId}, {_id: 1});
+  //$collection(Dogs, {user_id: $scope.curUserId}).bindOne($scope, 'myDog');
+  $scope.myDog = Dogs.findOne({user_id: $scope.curUserId});
+  console.log($scope.myDog);
+  
 
   $scope.getRandomDog = function() {
     r = Math.random();
@@ -17,13 +20,13 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', functi
     $scope.dog = Dogs.findOne({
       randomize: {$lte: r},
       downVotes: {$nin: [$scope.curUserId]},
-      _id: {$not: $scope.myDogId}
+      _id: {$not: $scope.myDog._id}
     });
     if(!$scope.dog) {
       $scope.dog = Dogs.findOne({
         randomize: {$gt: r},
         downVotes: {$nin: [$scope.curUserId]},
-        _id: {$not: $scope.myDogId}
+        _id: {$not: $scope.myDog_id}
       });
     }
     console.log($scope.dog);
@@ -31,8 +34,8 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', functi
 
   $scope.upVote = function() {
     if ($scope.dog) {
-      Dogs.update({
-        _id: $scope.dog._id}, {$addToSet: {upVotes: $scope.curUserId}});
+      if ($scope.dog.user_id)
+      Dogs.update({_id: $scope.dog._id}, {$addToSet: {upVotes: $scope.curUserId}});
     }
     $scope.getRandomDog();
   };
