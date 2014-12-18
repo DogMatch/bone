@@ -7,7 +7,8 @@
 
     <img src='[[mydog.url]]' class="user-pet-pic" data-ng-click='petPhoto()' alt='Dog pic click to upload photo'>
     <!-- Pet info - Name, Age, Sex, Breed -->
-    <h3 class="user-pet-info" data-ng-click="petEdit()" >[[mydog.name]], Age:[[mydog.age]], [[mydog.sex]], [[mydog.breed]]</h3>
+    <h3 class="user-pet-info" data-ng-click="petEdit()" ng-hide="!mydog._id">[[mydog.name]], Age:[[mydog.age]], [[mydog.sex]], [[mydog.breed]]</h3>
+    <h3 class="user-pet-info" data-ng-click="petEdit()" ng-show="!mydog._id">Click here to add info about your dog</h3>
     <!-- Pet Description -->
     <section class="user-pet-description" data-ng-click='petBio()'>
       <p>[[mydog.bio]]</p>
