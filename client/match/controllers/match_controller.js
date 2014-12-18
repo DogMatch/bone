@@ -26,7 +26,7 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', '$coll
       $scope.dog = Dogs.findOne({
         randomize: {$gt: r},
         downVotes: {$nin: [$scope.curUserId]},
-        _id: {$not: $scope.myDog_id}
+        _id: {$not: $scope.myDog._id}
       });
     }
     console.log($scope.dog);
