@@ -1,5 +1,7 @@
 .match-pet-profile
   width: 100%
+  .user-pet-info
+    text-align: center
 
 .match-description-btn
   width: 40%
@@ -14,9 +16,17 @@
   width: 80%
   margin: 2% auto
   @include add-webkit-v(display, flex)
+  @include add-webkit-p(flex-direction, row)
+  @include add-webkit-p(flex-wrap, wrap)
+  @include add-webkit-p(justify-content, space-around)
+  @include add-webkit-p(align-items, center)
+  @include add-webkit-p(align-content, center)
   // @media screen and (min-width : $large-screen-min-width)
 
-
+.bark-yes, .yelp-no
+  // @include add-webkit-p(flex, "0, 1")
+  width: 40%
+  // @include add-webkit-p(flex-basis, 12em)
 
 
 
