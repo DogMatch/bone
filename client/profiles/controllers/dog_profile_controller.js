@@ -76,6 +76,7 @@ $scope.dogData = function() {
           $scope.dogs.url = res.secure_url;
           console.log($scope.dogs._id, $scope.dogs.url);
           Dogs.update({'_id': $scope.dogs._id}, { $set: {'url': res.secure_url}}, function(err, res) {console.log(err, res);});
+          $scope.viewChoice = 'petProfile';
         });
     };
 }]);
