@@ -5,6 +5,6 @@ Meteor.startup(function() {
   angular.bootstrap(document, ['boneApp']);
 });
 
-  $.cloudinary.config({
-    cloud_name: "bone"
+$.cloudinary.config({
+  cloud_name: 'bone'
 });
