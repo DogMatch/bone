@@ -5,7 +5,9 @@ angular.module('boneApp').controller('MessagesCtrl', ['$scope', '$location', fun
   } else {
     $scope.curUserId = Meteor.userId();
   }
-  console.log($scope.curUserId);
   $scope.matchedDogs = Dogs.find({matches: $scope.curUserId}).fetch();
-  console.log($scope.matchedDogs);
+
+  $scope.delete = function() {
+    Dogs.update({_id: $scope.myDog._id}, {$unset: {matches: $scope.dog.user_id}});
+  };
 }]);
