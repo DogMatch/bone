@@ -36,17 +36,17 @@
     <section data-ng-show="viewChoice == 'signed-in'" class="landing-sign">
       <section class="btns-wrapper">
         <button data-ng-click="signOutUser()">Sign Out</button>
-        <button data-ng-click="$scope.viewChoice='edit-pass'">Edit Pass</button>
+        <button data-ng-click="toEditPass()">Edit Pass</button>
       </section>
     </section>
 
     <section data-ng-show="viewChoice == 'edit-pass'" class="landing-sign">
-      <input type="text" placeholder="email" data-ng-model="curUser.email">
-      <input type="text" placeholder="old password" data-ng-model="curUser.passwordNew">
+      <input disabled type="text" placeholder="email" data-ng-model="curUserEmail">
+      <input type="password" placeholder="old password" data-ng-model="curUser.passwordOld">
       <input type="password" placeholder="new password" data-ng-model="curUser.passwordNew">
       <input type="password" placeholder="password confirm" data-ng-model="curUser.passwordConfirm">
       <section class="btns-wrapper">
-        <button class="confirm" data-ng-click="updateUser()">Done</button>
+        <button class="confirm" data-ng-click="editUser()">Done</button>
         <button class="cancel" data-ng-click="backToLanding()">Cancel</button>
       </section>
     </section>
