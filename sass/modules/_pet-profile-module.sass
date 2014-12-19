@@ -1,5 +1,7 @@
 .user-pet-profile
   width: 100%
+  &:first-child
+    margin-top: 1em
 
 .user-pet-pic
   width: 80%
@@ -7,12 +9,12 @@
   max-width: 15em
   max-height: 40em
   background-color: $color1
-  margin: 5% auto 0
+  margin: 0.3em auto 0
 
 .user-pet-info
   width: 80%
   color: $color7
-  margin: 2% auto
+  margin: 0.8em auto
   text-transform: uppercase
   text-align: left
   @media screen and (min-width : $large-screen-min-width)
@@ -24,6 +26,10 @@
   background-color: $color1
   border-radius: .5em
   margin: 2% auto
+  overflow: auto
+  @media screen and (min-width : $large-screen-min-width)
+    width: 60%
+    margin: 0.8em auto
 
 .user-pet-description p
   padding: .625em
@@ -35,23 +41,23 @@
 
 //Input and Select Styling
 .styled-select, select.styled-select
-  width: 90%
-  margin: 5% 0 1% 5%
+  width: 80%
+  margin: 1em 0 0.5em 10%
   background-color: $color1
   @media screen and (min-width : $large-screen-min-width)
-    width: 60%
-    margin-left: 20%
+    width: 50%
+    margin-left: 25%
 
 .pet-edit
-  padding: 1.5%
+  padding: 0.5em
   input
-    width: 90%
-    margin: 5% 0 0 5%
+    width: 80%
+    margin: 1em 0 0 10%
     &:first-of-type
-      margin-top: 3%
+      margin-top: 1em
     @media screen and (min-width : $large-screen-min-width)
-      width: 60%
-      margin-left: 20%
+      width: 50%
+      margin-left: 25%
 
 .pet-pic-upload
   input[type="file"]
