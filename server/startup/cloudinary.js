@@ -1,7 +1,7 @@
 'use strict';
 Meteor.startup(function() {
 
-  Cloudinary.config({
+    Cloudinary.config({
     cloud_name: 'bone',
     api_key: '327823257725943',
     api_secret: 'emw0eJqOE0T-4ZQR1p7x_jHMik8'
