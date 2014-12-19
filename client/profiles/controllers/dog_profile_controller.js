@@ -8,6 +8,7 @@ angular.module("boneApp").controller("DogProfileCtrl", ['$scope','$collection', 
   $scope.errors = [];
   $scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
 
+
 console.log($scope.mydog);
   if(!$scope.mydog){
     $scope.mydog= {};
@@ -29,8 +30,6 @@ $scope.petPhoto = function() {
 };
 
 $scope.petBio = function() {
-  $scope.tempBio =$scope.mydog.bio;
-  $scope.mydog.bio = "";
   $scope.viewChoice = 'petDescription';
 };
 
@@ -99,4 +98,5 @@ if (!$scope.mydog._id) {
           document.getElementById("userPetPic").attr("url", $scope.mydog.url)
         });
     };
+  //$scope.$apply();
 }]);

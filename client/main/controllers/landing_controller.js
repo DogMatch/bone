@@ -1,5 +1,6 @@
 'use strict';
 angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+
   $scope.errors = [];
   $scope.curUser = Meteor.user();
   $scope.viewChoice = 'signed-out';
@@ -8,7 +9,6 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
   }
 
   $scope.backToLanding = function() {
-    console.log('back to / ');
     if (Meteor.userId) {
       $scope.viewChoice = 'signed-out';
     } else {
@@ -18,8 +18,11 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
 
   // much of the custom login functionality from: http://blog.benmcmahen.com/post/41741539120/building-a-customized-accounts-ui-for-meteor
   $scope.createUser = function() {
-    if ($scope.newUser.password != $scope.newUser.passwordConfirm) return;
-      console.log('Creating User!');
+    $scope.errors = [];
+    if (!$scope.newUser.email) $scope.errors.push('Invalid email');
+    if ($scope.newUser.password != $scope.newUser.passwordConfirm) $scope.errors.push('Password confirm failed');
+    if ($scope.newUser.password < 6) $scope.error.push('Password too short, need 6+ characters');
+    console.log($scope.errors);
     Accounts.createUser({
       email: $scope.newUser.email,
       password : $scope.newUser.password
@@ -27,6 +30,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
       if (err) {
         console.log(err);
         // error: new account creation failed
+        $scope.errors.push(err.reason);
       } else {
         // success: new account created
         $location.path('/profile');
