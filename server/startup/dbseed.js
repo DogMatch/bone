@@ -70,12 +70,12 @@ Meteor.startup(function() {
       'M'
     ];
     var bios = [
-      "I'm sassy!",
-      "fart-machine",
-      "I can see through time",
-      "Hewwwo wooold",
-      "I love parks and long walks",
-      "Love me, human!"
+      'I\'m sassy!',
+      'fart-machine',
+      'I can see through time',
+      'Hewwwo wooold',
+      'I love parks and long walks',
+      'Love me, human!'
     ]
 
     var urls = ['http://res.cloudinary.com/bone/image/upload/v1418769938/eseheoiiidctjdyhmfay.jpg',
