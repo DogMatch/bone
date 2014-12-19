@@ -1,5 +1,5 @@
 'use strict';
-angular.module("boneApp").controller("DogProfileCtrl", ['$scope','$collection', '$location', function($scope, $collection, $location){
+angular.module('boneApp').controller('DogProfileCtrl', ['$scope','$collection', '$location', function($scope, $collection, $location){
   if (!Meteor.userId()) {
     $location.path('/');
   } else {
@@ -90,9 +90,7 @@ if (!$scope.mydog._id) {
   $scope.photoUpload = function() {
         var files = $("input.btn-pic-upload")[0].files;
         C.upload_stream(files,function(res) {
-          console.log(res.secure_url);
           $scope.mydog.url = res.secure_url;
-          console.log($scope.mydog._id, $scope.mydog.url);
           Dogs.update({_id: $scope.mydog._id}, { $set: {url: res.secure_url}}, function(err, res) {console.log(err, res);});
           document.getElementById("userPetPic").attr("url", $scope.mydog.url);
         });
