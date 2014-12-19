@@ -1,5 +1,4 @@
-#bone
-====
+#Bone
 
 ##Most current app on 'development' branch
 
