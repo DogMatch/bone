@@ -38,7 +38,7 @@
   <!-- Add/Edit Pet Pic on Pet profile view -->
   <section class="pet-edit" data-ng-show="viewChoice == 'petPhoto'">
     <img src='[[mydog.url]]' id="userPetPic" class="user-pet-pic" alt="Image preview...">
-    <p> If pic doesn't load click again</p>
+    <p class="instruct">First 'Select File' then click 'Upload File'. If your picture doesn't load please click 'Upload File' again.</p>
     <section class="btns-wrapper">
       <label for="petPicUpload" class="pet-pic-upload clearfix">
         <input type="file" id="petPicUpload" class="btn-pic-upload" value="Upload A Picture" onchange="this.nextElementSibling.textContent =  this.files[0].name">
