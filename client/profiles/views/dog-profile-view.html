@@ -11,7 +11,7 @@
     <h4 class="user-pet-info" data-ng-click="petEdit()" ng-show="!mydog._id">Click here to create a profile for your dog</h4>
     <!-- Pet Description -->
     <section class="user-pet-description" data-ng-click='petBio()'>
-      <p><p data-ng-hide="mydog.bio">Click here to add a descritpion</p>[[mydog.bio]]</p>
+      <p><p data-ng-hide="mydog.bio">Click here to add a description</p>[[mydog.bio]]</p>
     </section>
   </section>
 
@@ -19,7 +19,7 @@
   <section class="pet-edit" data-ng-show="viewChoice == 'petEdit'">
     <section class="pet-edit-console">
       <input autofocus type="text" data-ng-model="mydog.name" placeholder="dog name">
-      <input type="number" data-ng-model="mydog.age" placeholder="age">
+      <input type="number" min="0" data-ng-model="mydog.age" placeholder="age">
       <input type="text" data-ng-model="mydog.breed" placeholder="dog breed">
       <section class="styled-select">
         <select data-ng-model="mydog.sex">

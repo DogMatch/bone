@@ -43,50 +43,207 @@ Meteor.startup(function() {
       email: 'm@oo.com',
       password: '123456'
     }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Agnes',
+      email: 'a1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Bertha',
+      email: 'b1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Catherine',
+      email: 'c1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Dora',
+      email: 'd1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Ella',
+      email: 'e1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Francesca',
+      email: 'f1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Gertie',
+      email: 'g1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Henrietta',
+      email: 'h1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Irene',
+      email: 'i1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Jane',
+      email: 'j1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Katherine',
+      email: 'k1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Larissa',
+      email: 'l1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Margaret',
+      email: 'm1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Netty',
+      email: 'n1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Opal',
+      email: 'o1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Polyanna',
+      email: 'p1@oo.com',
+      password: '123456'
+    }));
+    usersSeed.push(Accounts.createUser({
+      username: 'Queenie',
+      email: 'q1@oo.com',
+      password: '123456'
+    }));
     userCount = Meteor.users.find().count();
   }
 
   if (dogCount === 0) {
     var names = [
-      'Ada',
-      'Grace',
-      'Marie',
+      'Issy',
+      'Bully',
+      'CeilingDog',
       'Carl',
-      'Nikola',
-      'Claude'
+      'Nicki',
+      'Claude & Cindy',
+      'Doge',
+      'Kiki',
+      'Cinderella',
+      'Small Puppy',
+      'Rover',
+      'Sara',
+      'Brock',
+      'Maury',
+      'Fletch',
+      'Josephine',
+      'Joey',
+      'Cora',
+      'Business Dog',
+      'Oliver',
+      'Meg'
     ];
     var breeds = [
-      'Beagle',
-      'Poodle',
-      'Black Lab',
-      'Collie',
-      'Aussie',
-      'Aussie'
+      'Basenji',
+      'Rottweiler',
+      'Husky',
+      'Bulldog',
+      'Chihuahua',
+      'Cat-Dog Hybrid',
+      'Shiba Inu',
+      'Basenji',
+      'Toy Bulldog',
+      'Retriever',
+      'Golden Retriever',
+      'Toy',
+      'Insane Terrier',
+      'Retriever',
+      'Mix',
+      'Rotty Mix',
+      'Lab',
+      'Pointy',
+      'Bull',
+      'Cigar Lover',
+      'Husky'
     ];
     var sexes = [
-      'M',
+      'F',
       'F',
       'M',
       'F',
       'M',
-      'M'
+      'M',
+      'M',
+      'M',
+      'F',
+      'M',
+      'F',
+      'F',
+      'M',
+      'F',
+      'F',
+      'M',
+      'F',
+      'M',
+      'M',
+      'F'
     ];
     var bios = [
-      'I\'m sassy!',
+      'I\'m out of control!',
+      'Kill sticks but don\'t kill time',
       'fart-machine',
+      'Love to Sit!',
+      'HEY WHAT\'S UP WHAT ARE YOU DOING LET\'s DO IT TOGETHER YEAH COMEONCOMEONCOMEON',
+      'Love us, human!',
+      'Wow. Much relevance. Such match.',
+      'surprisingly calm',
+      'Want to wear sweaters together?',
+      'I don\'t really look like this...',
+      'running is my life!',
+      'Rub My Beelllllyyyyy',
+      'Small breakable dogs 2 the front',
       'I can see through time',
-      'Hewwwo wooold',
-      'I love parks and long walks',
-      'Love me, human!'
+      'Sniff everything!',
+      'Super friendly, just want to meet other big dogs',
+      'What is life?',
+      'what do you all smell like out there?',
+      'Good at Business',
+      'Want to eat things with new people.',
+      'I\'m watching'
     ];
-
-    var urls = ['http://res.cloudinary.com/bone/image/upload/v1418769938/eseheoiiidctjdyhmfay.jpg',
-    'http://res.cloudinary.com/bone/image/upload/v1418769877/ja9qkisv8xmvwzgyqhcb.jpg',
-    'http://res.cloudinary.com/bone/image/upload/v1418767579/ydalhps6pvwpxzppxbd8.jpg',
-    'https://cloudinary.com/console/media_library#/dialog/image/upload/ywbdshfvn2jen0urp7ik',
-    'http://www.metrodogstop.com/cms/wp-content/uploads/2013/05/cute-dog.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv6QqkDtXMV33USkXv4GG43SoPK6zbIwip700q0m9_WnAmYpnt'];
-
+    var urls = ['http://res.cloudinary.com/bone/image/upload/v1418968183/Issey_uawrwx.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969217/bully_pbtdak.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969230/CeilingDog_bvqpbb.png',
+    'http://res.cloudinary.com/bone/image/upload/v1418969230/ChairDog_vb4rdx.png',
+    'http://res.cloudinary.com/bone/image/upload/v1418969230/chihuahuaRunRunRun_z40qut.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969231/dogandcat_kiaptv.png',
+    'http://res.cloudinary.com/bone/image/upload/v1418969231/DOGE_ykluek.png',
+    'http://res.cloudinary.com/bone/image/upload/v1418969239/kiki_kuyfqh.png',
+    'http://res.cloudinary.com/bone/image/upload/v1418969238/LittleBull_t3fuaf.png',
+    'http://res.cloudinary.com/bone/image/upload/v1418969238/littlepuppy_mzi0if.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969238/Retriever_rv60vm.png',
+    'http://res.cloudinary.com/bone/image/upload/v1418969240/Rolly_lqjcuz.png',
+    'http://res.cloudinary.com/bone/image/upload/v1418969239/Scary_yytjsg.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969239/SeeThroughTim_oytqug.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969239/Shaney1_lkldp9.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969239/Shaney2_tcyahl.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969239/Shaney3_sbws75.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969240/Shaney5_xs0a1i.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969240/Shaney6_a2jnbo.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969241/Shaney7_nvyixc.jpg',
+    'http://res.cloudinary.com/bone/image/upload/v1418969242/Starey_sgqckl.png'];
     /* jshint ignore:start */
     for (var i = 0; i < names.length; i++) {
       Dogs.insert({
