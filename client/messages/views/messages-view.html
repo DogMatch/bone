@@ -2,15 +2,14 @@
   <section class="message-list">
   <!-- Default message if user has no matches -->
     <h2>Start finding matches</h2>
-    <section data-ng-hide="dogs.length">
+    <section data-ng-hide="matchedDogs.length">
       You currently have no matches.
     </section>
   <!-- This should be the pattern for the messages modules based on matchId. -->
     <section data-ng-repeat="dog in matchedDogs" class="message">
   <!-- Delete modules on the right of each matchId that will show/hide with AngularJS -->
-      <section class="message-delete">
+      <section data-ng-click="deleteMatch(dog._id)" class="message-delete">
         <p class="icon-x"></p>
-        <button data-ng-click="delete()">Delete Match</button>
       </section>
       <section class="message-info">
     <!-- Pet pic, pet info, and date of match will always be in view until deleted -->
