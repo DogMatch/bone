@@ -3,7 +3,6 @@
   @include add-webkit-v(display, flex)
   text-align: center
   margin: 5% auto
-  max-height: 5em
   border: .0625em solid $color7
   padding: 1% 0
 
@@ -28,6 +27,25 @@
   p
     padding-left: 2%
     font-size: .5em
+
+.portrait
+  position: relative
+  width: 6em
+  height: 6em
+  overflow: hidden
+  img
+    position: absolute
+    left: 50%
+    top: 50%
+    height: 100%
+    width: auto
+    -webkit-transform: translate(-50%,-50%)
+        -ms-transform: translate(-50%,-50%)
+            transform: translate(-50%,-50%)
+.portrait-image
+  width: 100%
+  height: auto
+
 
 .match-labels
   @include add-webkit-p(flex-direction, column)
