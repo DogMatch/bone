@@ -79,6 +79,7 @@
       "UiRouter": false,
       "Cloudinary": false,
       "Images": false,
+      "C": false,
       
       // collections for this app
       "Dogs": false,

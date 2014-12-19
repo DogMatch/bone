@@ -1,1 +1,1 @@
-Dogs = new Meteor.Collection('dogs');
+Dogs = new Meteor.Collection('dogs');/* jshint ignore:line */
