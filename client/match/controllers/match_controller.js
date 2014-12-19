@@ -20,7 +20,7 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', functi
       downVotes: {$nin: [$scope.curUserId]},
       _id: {$not: $scope.myDog._id}
     });
-    if(!$scope.dog) {
+    if (!$scope.dog) {
       console.log('GT');
       $scope.dog = Dogs.findOne({
         randomize: {$gt: randNum},

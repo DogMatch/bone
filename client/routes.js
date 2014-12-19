@@ -6,29 +6,29 @@ angular.module('boneApp').config(['$urlRouterProvider', '$stateProvider', '$loca
 
   $stateProvider
     .state('main', {
-      url: "/main",
-      template: UiRouter.template("landing-view.html"),
-      controller: "LandingCtrl"
+      url: '/main',
+      template: UiRouter.template('landing-view.html'),
+      controller: 'LandingCtrl'
     })
     .state('profile', {
-      url: "/profile",
-      template: UiRouter.template("dog-profile-view.html"),
-      controller: "DogProfileCtrl"
+      url: '/profile',
+      template: UiRouter.template('dog-profile-view.html'),
+      controller: 'DogProfileCtrl'
     })
     .state('matchup', {
-      url: "/matchup",
-      template: UiRouter.template("match-view.html"),
-      controller: "MatchCtrl"
+      url: '/matchup',
+      template: UiRouter.template('match-view.html'),
+      controller: 'MatchCtrl'
     })
     .state('messages', {
-      url: "/messages",
-      template: UiRouter.template("messages-view.html"),
-      controller: "MessagesCtrl"
+      url: '/messages',
+      template: UiRouter.template('messages-view.html'),
+      controller: 'MessagesCtrl'
     })
     .state('settings', {
-      url: "/settings",
-      template: UiRouter.template("landing-view.html"),
-      controller: "LandingCtrl"
+      url: '/settings',
+      template: UiRouter.template('landing-view.html'),
+      controller: 'LandingCtrl'
     });
 
   $urlRouterProvider.otherwise('/main');

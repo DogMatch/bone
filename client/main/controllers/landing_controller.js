@@ -30,7 +30,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
     console.log($scope.errors);
     Accounts.createUser({
       email: $scope.newUser.email,
-      password : $scope.newUser.password
+      password: $scope.newUser.password
     }, function(err) {
       if (err) {
         console.log(err);
@@ -44,9 +44,11 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
   };
 
   $scope.editUser = function() {
-    if (!Meteor.userId()) return $scope.viewChoice = 'signed-out';
+    if (!Meteor.userId()) {
+      $scope.viewChoice = 'signed-out';
+      return;
+    }
     if ($scope.curUser.passwordNew != $scope.curUser.passwordConfirm) return;
-      console.log('Changing Password!');
     Accounts.changePassword(
       $scope.curUser.passwordOld,
       $scope.curUser.passwordNew,
@@ -56,6 +58,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
         // error: new account creation failed
       } else {
         // success: new account created
+        return;
       }
     });
     $scope.viewChoice = 'signed-in';
@@ -94,6 +97,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
   $scope.signOutUser = function() {
     Meteor.logout(function(err) {
       if (err) {
+        console.log(err);
         // error: there was a problem signing out
       } else {
         // success: signed out

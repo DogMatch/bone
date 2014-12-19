@@ -1,3 +1,4 @@
+/*jshint white:true*/
 'use strict';
 Meteor.startup(function() {
       // Meteor.users.remove({});
@@ -8,6 +9,7 @@ Meteor.startup(function() {
   console.log('users: ' + userCount);
   console.log('dogs: ' + dogCount);
 
+  /* jshint ignore:start */
   if (userCount === 0) {
     console.log('Seeding data!');
     var usersSeed = [];
@@ -76,7 +78,7 @@ Meteor.startup(function() {
       'Hewwwo wooold',
       'I love parks and long walks',
       'Love me, human!'
-    ]
+    ];
 
     var urls = ['http://res.cloudinary.com/bone/image/upload/v1418769938/eseheoiiidctjdyhmfay.jpg',
     'http://res.cloudinary.com/bone/image/upload/v1418769877/ja9qkisv8xmvwzgyqhcb.jpg',
@@ -85,6 +87,7 @@ Meteor.startup(function() {
     'http://www.metrodogstop.com/cms/wp-content/uploads/2013/05/cute-dog.jpg',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv6QqkDtXMV33USkXv4GG43SoPK6zbIwip700q0m9_WnAmYpnt'];
 
+    /* jshint ignore:start */
     for (var i = 0; i < names.length; i++) {
       Dogs.insert({
         name: names[i],
@@ -101,4 +104,5 @@ Meteor.startup(function() {
       });
     }
   }
+  /* jshint ignore:end */
 });
