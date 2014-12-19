@@ -16,6 +16,11 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
     }
   };
 
+  $scope.toEditPass = function() {
+    $scope.viewChoice = 'edit-pass';
+    $scope.curUserEmail = $scope.$parent.currentUser.emails[0].address;
+  };
+
   // much of the custom login functionality from: http://blog.benmcmahen.com/post/41741539120/building-a-customized-accounts-ui-for-meteor
   $scope.createUser = function() {
     $scope.errors = [];
@@ -51,9 +56,9 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
         // error: new account creation failed
       } else {
         // success: new account created
-        $location.path('/profile');
       }
     });
+    $scope.viewChoice = 'signed-in';
   };
 
   $scope.signInFacebook = function() {
@@ -98,11 +103,11 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
     });
   };
 
-  var trimInput = function(val) {
-      return val.replace(/^\s*|\s*$/g, "");
-  };
-  var isValidPassword = function(val) {
-       return val.length >= 6 ? true : false;
-  };
+  // var trimInput = function(val) {
+  //     return val.replace(/^\s*|\s*$/g, "");
+  // };
+  // var isValidPassword = function(val) {
+  //      return val.length >= 6 ? true : false;
+  // };
 
 }]);
