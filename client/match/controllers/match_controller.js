@@ -11,7 +11,6 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', functi
   //$collection(Dogs, {user_id: $scope.curUserId}).bindOne($scope, 'myDog');
   $scope.myDog = Dogs.findOne({user_id: $scope.curUserId});
   console.log($scope.myDog);
-  
 
   $scope.getRandomDog = function() {
     var randNum = Math.random();
@@ -22,7 +21,7 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', functi
       _id: {$not: $scope.myDog._id}
     });
     if(!$scope.dog) {
-      console.log('GT')
+      console.log('GT');
       $scope.dog = Dogs.findOne({
         randomize: {$gt: randNum},
         downVotes: {$nin: [$scope.curUserId]},
