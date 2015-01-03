@@ -245,7 +245,6 @@ Meteor.startup(function() {
     'http://res.cloudinary.com/bone/image/upload/v1418969241/Shaney7_nvyixc.jpg',
     'http://res.cloudinary.com/bone/image/upload/v1418969242/Starey_sgqckl.png'];
     /* jshint ignore:start */
-    Dogs._ensureIndex({ random_point : '2d' });
     for (var i = 0; i < names.length; i++) {
       Dogs.insert({
         name: names[i],
@@ -255,7 +254,6 @@ Meteor.startup(function() {
         bio: bios[i],
         age: Math.floor(Random.fraction() * 10),
         randomize: Math.random(),
-        random_point: [Math.random(), Math.random()],
         upVotes: [],
         downVotes: [],
         matches: [],
