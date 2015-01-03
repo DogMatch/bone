@@ -7,6 +7,11 @@ Meteor.publish('dogProfiles', function() {
   });
 });
 
+Meteor.publish('matchedDogProfiles', function() {
+  if (!this.userId) return null;
+  return Dogs.find({matches: this.userId});
+});
+
 Meteor.publish('myDogProfile', function() {
   return Dogs.find({user_id: this.userId});
 });
