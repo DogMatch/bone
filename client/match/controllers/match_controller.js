@@ -33,6 +33,7 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$rootScope', '$loc
   $scope.upVote = function() {
     if ($scope.dog) {
       Dogs.update({_id: $scope.dog._id}, {$addToSet: {upVotes: Meteor.userId()}});
+      console.log((Dogs.find().count() - 1), " dogs left");
       if (_.indexOf($scope.myDog.upVotes, $scope.dog.user_id) > -1) {
         console.log('Match!!!!!');
         Dogs.update({_id: $scope.dog._id}, {$addToSet: {matches: $scope.myDog.user_id}});
@@ -44,6 +45,7 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$rootScope', '$loc
   $scope.downVote = function() {
     if ($scope.dog) {
       Dogs.update({_id: $scope.dog._id}, {$addToSet: {downVotes: Meteor.userId()}});
+      console.log((Dogs.find().count() - 1), " dogs left");
     }
   };
 
