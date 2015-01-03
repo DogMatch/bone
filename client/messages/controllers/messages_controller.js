@@ -1,5 +1,5 @@
 'use strict';
-angular.module('boneApp').controller('MessagesCtrl', ['$scope', '$location', function($scope, $location) {
+angular.module('boneApp').controller('MessagesCtrl', ['$scope', 'rootScope', '$location', function($scope, $rootScope, $location) {
   if (!Meteor.userId()) $location.path('/');
 
   $scope.errors = [];
