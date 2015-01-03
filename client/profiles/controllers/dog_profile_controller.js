@@ -1,14 +1,17 @@
 'use strict';
-angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$location', function($scope, $location) {
-  if (!Meteor.userId()) {
-    $location.path('/');
-  } else {
-    $scope.curUserId = Meteor.userId;
-  }
-  $scope.errors = [];
-  $scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
+angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+  if (!Meteor.userId()) $location.path('/');
 
-  console.log($scope.mydog);
+  $scope.errors = [];
+  Tracker.autorun(function(self) {
+    $scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
+    if (!$scope.$root.$$phase) $scope.$apply();
+    $scope.$on('$destroy', function () {
+      self.stop(); // Stop computation if scope is destroyed.
+    });
+  });
+  
+  
   if (!$scope.mydog) {
     $scope.mydog = {};
     $scope.mydog.name = '';
@@ -81,7 +84,7 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$location', f
       });
     }
 
-    $scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
+    //$scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
     $scope.viewChoice = 'petProfile';
   };
 

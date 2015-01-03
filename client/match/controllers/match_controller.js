@@ -1,17 +1,11 @@
 'use strict';
-angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', function($scope, $location) {
+angular.module('boneApp').controller('MatchCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+  if (!Meteor.userId()) $location.path('/');
 
-  if (!Meteor.userId()) {
-    $location.path('/');
-  } else {
-    $scope.curUserId = Meteor.userId();
-  }
-  console.log($scope.curUserId);
+  $scope.errors = [];
+  $scope.myDog = Dogs.findOne({user_id: Meteor.userId()});
 
-  //$collection(Dogs, {user_id: $scope.curUserId}).bindOne($scope, 'myDog');
-  $scope.myDog = Dogs.findOne({user_id: $scope.curUserId});
-  console.log($scope.myDog);
-
+  Meteor.subscribe('dogProfiles')
   $scope.getRandomDog = function() {
     var randNum = Math.random();
     console.log(randNum);
