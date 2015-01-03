@@ -3,12 +3,13 @@ angular.module('boneApp').controller('MessagesCtrl', ['$scope', '$location', fun
   if (!Meteor.userId()) $location.path('/');
 
   $scope.errors = [];
-  Meteor.subscribe('matchedDogProfiles');
+  var sub = Meteor.subscribe('matchedDogProfiles');
   Tracker.autorun(function(self) {
     $scope.matchedDogs = Dogs.find({}).fetch();
     if (!$scope.$root.$$phase) $scope.$apply();
     $scope.$on('$destroy', function () {
       self.stop(); // Stop computation if scope is destroyed.
+      sub.stop();
     });
   });
 

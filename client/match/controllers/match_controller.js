@@ -11,7 +11,7 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$rootScope', '$loc
     });
   });
 
-  Meteor.subscribe('dogProfiles');
+  var sub = Meteor.subscribe('dogProfiles');
   Tracker.autorun(function(self) {
     var randNum = Math.random();
     $scope.dog = Dogs.findOne({
@@ -27,6 +27,7 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$rootScope', '$loc
     if (!$scope.$root.$$phase) $scope.$apply();
     $scope.$on('$destroy', function () {
       self.stop(); // Stop computation if scope is destroyed.
+      sub.stop();
     });
   });
 
