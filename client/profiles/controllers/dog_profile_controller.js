@@ -6,12 +6,11 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$rootScope', 
   Tracker.autorun(function(self) {
     $scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
     if (!$scope.$root.$$phase) $scope.$apply();
-    $scope.$on('$destroy', function () {
+    $scope.$on('$destroy', function() {
       self.stop(); // Stop computation if scope is destroyed.
     });
   });
-  
-  
+
   if (!$scope.mydog) {
     $scope.mydog = {};
     $scope.mydog.name = '';
