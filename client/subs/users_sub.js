@@ -1,2 +1,2 @@
 'use strict';
-Meteor.subscribe('allUserData');
+Meteor.subscribe('myUserData');
