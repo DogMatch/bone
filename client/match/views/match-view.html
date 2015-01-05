@@ -1,16 +1,21 @@
 <template name="match-view.html">
   <section class="match-pet-profile">
-    <section id="picBox">
+    <section data-ng-show="dog" id="picBox">
       <img src="[[dog.url]]" alt="[[dog.name]]" class="user-pet-pic">
       <h4 class="user-pet-info"> [[dog.name]], Age: [[dog.age]], [[dog.sex]], [[dog.breed]] </h4>
       <p class="match-pet-description">[[dog.bio]]</p>
      <!-- Feature to be reintroduced - button that shows/hides info -->
-      <!-- <button class="match-description-btn" ng-click="getMoreInfo()">Info</button> -->
+      <!-- <button class="match-description-btn" data-ng-click="getMoreInfo()">Info</button> -->
+    </section>
+
+    <section>
+      <img src="images/nodog.png" alt="nodog" class="user-pet-pic">
+      <h4 data-ng-hide="dog" id="noDogs" class="user-pet-info">Fresh out of dogs! Check back later for more.</h4>
     </section>
 
     <section class="match-choice">
-      <button ng-click="downVote()" class="icon-x yelp-no cancel"></button>
-      <button ng-click="upVote()" class="icon-checkmark bark-yes"></button>
+      <button data-ng-click="downVote()" class="icon-x yelp-no cancel"></button>
+      <button data-ng-click="upVote()" class="icon-checkmark bark-yes"></button>
     </section>
   </section>
 </template>

@@ -1,17 +1,17 @@
 <template name="landing-view.html">
-  <p ng-repeat="err in errors" style="icon-warning error">&nbsp;[[err]]</p>
+  <p data-ng-repeat="err in errors" style="icon-warning error">&nbsp;[[err]]</p>
   <section class="landing">
-    <section class="landing-info" ng-hide="viewChoice == 'sign-in' || viewChoice == 'sign-up' || viewChoice == 'edit-pass'">
+    <section class="landing-info" data-ng-hide="viewChoice == 'sign-in' || viewChoice == 'sign-up' || viewChoice == 'edit-pass'">
       <h1 tabindex="0" class="landing-title">Throw That Dog a Bone!</h1>
       <h4>A Matching App for Dogs</h4>
       <p>Bone is for dogs! Dogs are social animals. Make your dog a social profile and find your dog a match! If the other dog matches you in turn, set up a playdate!</p>
     </section>
 
-    <section ng-show="viewChoice == 'signed-out'" class="landing-sign">
+    <section data-ng-show="viewChoice == 'signed-out'" class="landing-sign">
       <section class="btns-wrapper">
 <!--         <button ng-click="viewChoice = 'facebook'" class="icon-facebook facebook-btn">&nbsp;Facebook</button> -->
-        <button ng-click="viewChoice = 'sign-in'">Sign In</button>
-        <button ng-click="viewChoice = 'sign-up'">Sign Up</button>
+        <button data-ng-click="viewChoice = 'sign-in'">Sign In</button>
+        <button data-ng-click="viewChoice = 'sign-up'">Sign Up</button>
       </section>
     </section>
 

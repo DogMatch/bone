@@ -1,4 +1,3 @@
-'use strict';
 Dogs = new Meteor.Collection('dogs');/* jshint ignore:line */
 
 Dogs.allow({
