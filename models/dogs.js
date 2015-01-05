@@ -1,7 +1,9 @@
+'use strict';
 Dogs = new Meteor.Collection('dogs');/* jshint ignore:line */
 
 Dogs.allow({
   insert: function(userId, doc) {
+    void(doc); //-jshint- made me do this
     return userId;
   },
   update: function(userId, doc, fields, modifier) {
@@ -13,7 +15,7 @@ Dogs.allow({
       if (modifier.$addToSet.upVotes === userId) return true;
       if (modifier.$addToSet.downVotes === userId) return true;
       if (modifier.$addToSet.matches === userId) return true;
-    } else if (modifier.$unset){
+    } else if (modifier.$unset) {
       if (modifier.$unset.upVotes === userId) return true;
       if (modifier.$unset.matches === userId) return true;
     } else {
@@ -28,6 +30,7 @@ Dogs.allow({
 
 Dogs.deny({
   update: function(userId, doc, fields, modifier) {
+    void(modifier); //-jshint- made me do this
     if (doc.user_id === userId && !fields.user_id) {
       // don't deny updating own dog profile, but deny updating user_id
       return false;

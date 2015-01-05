@@ -95,7 +95,7 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$rootScope', 
     var files = $('input.btn-pic-upload')[0].files;
     C.upload_stream(files, function(res) {
       $scope.mydog.url = res.secure_url;
-      Dogs.update({_id: $scope.mydog._id}, { $set: {url: res.secure_url}}, function() {
+      Dogs.update({_id: $scope.mydog._id}, {$set: {url: res.secure_url}}, function() {
         document.getElementById('userPetPic').attr('url', $scope.mydog.url);
       });
     });
