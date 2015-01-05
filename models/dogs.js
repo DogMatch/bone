@@ -1,10 +1,10 @@
 Dogs = new Meteor.Collection('dogs');/* jshint ignore:line */
 
-Dogs.allow({  
-  insert: function (userId, doc) {
+Dogs.allow({
+  insert: function(userId, doc) {
     return userId;
   },
-  update: function (userId, doc, fields, modifier) {
+  update: function(userId, doc, fields, modifier) {
     // allow updating your own dog profile
     if (doc.user_id === userId) return true;
 
@@ -16,14 +16,14 @@ Dogs.allow({
     if (modifier.$unset.matches === userId) return true;
     return false;
   },
-  remove: function (userId, doc) {
+  remove: function(userId, doc) {
     // can only remove your own documents
     return doc.user_id === userId;
   }
 });
 
 Dogs.deny({
-  update: function (userId, doc, fields, modifier) {
+  update: function(userId, doc, fields, modifier) {
     if (doc.user_id === userId && !fields.user_id) {
       // don't deny updating own dog profile, but deny updating user_id
       return false;
