@@ -3,13 +3,9 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
 
   $scope.errors = [];
   $scope.curUser = Meteor.user();
-  $scope.viewChoice = 'signed-out';
-  if (Meteor.userId()) {
-    $scope.viewChoice = 'signed-in';
-  }
 
   $scope.backToLanding = function() {
-    if (Meteor.userId) {
+    if (!Meteor.userId()) {
       $scope.viewChoice = 'signed-out';
     } else {
       $scope.viewChoice = 'signed-in';
@@ -18,7 +14,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
 
   $scope.toEditPass = function() {
     $scope.viewChoice = 'edit-pass';
-    $scope.curUserEmail = $scope.$parent.currentUser.emails[0].address;
+    $scope.curUserEmail = $rootScope.currentUser.emails[0].address;
   };
 
   // much of the custom login functionality from: http://blog.benmcmahen.com/post/41741539120/building-a-customized-accounts-ui-for-meteor
@@ -113,5 +109,7 @@ angular.module('boneApp').controller('LandingCtrl', ['$scope', '$rootScope', '$l
   // var isValidPassword = function(val) {
   //      return val.length >= 6 ? true : false;
   // };
+
+  $scope.backToLanding();
 
 }]);

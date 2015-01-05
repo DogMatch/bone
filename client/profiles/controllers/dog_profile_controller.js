@@ -1,14 +1,16 @@
 'use strict';
-angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$location', function($scope, $location) {
-  if (!Meteor.userId()) {
-    $location.path('/');
-  } else {
-    $scope.curUserId = Meteor.userId;
-  }
-  $scope.errors = [];
-  $scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
+angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+  if (!Meteor.userId()) $location.path('/');
 
-  console.log($scope.mydog);
+  $scope.errors = [];
+  Tracker.autorun(function(self) {
+    $scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
+    if (!$scope.$root.$$phase) $scope.$apply();
+    $scope.$on('$destroy', function() {
+      self.stop(); // Stop computation if scope is destroyed.
+    });
+  });
+
   if (!$scope.mydog) {
     $scope.mydog = {};
     $scope.mydog.name = '';
@@ -70,7 +72,6 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$location', f
           age: $scope.mydog.age,
           sex: $scope.mydog.sex,
           breed: $scope.mydog.breed,
-          user_id: Meteor.userId(),
           bio: $scope.mydog.bio,
           url: $scope.mydog.url,
           randomize: Math.random(),
@@ -81,7 +82,7 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$location', f
       });
     }
 
-    $scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
+    //$scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
     $scope.viewChoice = 'petProfile';
   };
 
@@ -94,7 +95,7 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$location', f
     var files = $('input.btn-pic-upload')[0].files;
     C.upload_stream(files, function(res) {
       $scope.mydog.url = res.secure_url;
-      Dogs.update({_id: $scope.mydog._id}, { $set: {url: res.secure_url}}, function() {
+      Dogs.update({_id: $scope.mydog._id}, {$set: {url: res.secure_url}}, function() {
         document.getElementById('userPetPic').attr('url', $scope.mydog.url);
       });
     });

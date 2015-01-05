@@ -1,5 +1,17 @@
 'use strict';
 Meteor.publish('dogProfiles', function() {
   if (!this.userId) return null;
-  return Dogs.find();
+  return Dogs.find({
+    downVotes: {$nin: [this.userId]},
+    upVotes: {$nin: [this.userId]}
+  });
+});
+
+Meteor.publish('matchedDogProfiles', function() {
+  if (!this.userId) return null;
+  return Dogs.find({matches: this.userId});
+});
+
+Meteor.publish('myDogProfile', function() {
+  return Dogs.find({user_id: this.userId});
 });

@@ -1,9 +1,5 @@
 'use strict';
-Meteor.publish('allUserData', function() {
+Meteor.publish('myUserData', function() {
   if (!this.userId) return null;
-  return Meteor.users.find({}, {fields: {
-    _id: true,
-    emails: true,
-    profile: true
-  }});
+  return Meteor.users.find({_id: this.userId});
 });

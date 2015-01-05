@@ -1,60 +1,56 @@
 'use strict';
-angular.module('boneApp').controller('MatchCtrl', ['$scope', '$location', function($scope, $location) {
+angular.module('boneApp').controller('MatchCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+  if (!Meteor.userId()) $location.path('/');
 
-  if (!Meteor.userId()) {
-    $location.path('/');
-  } else {
-    $scope.curUserId = Meteor.userId();
-  }
-  console.log($scope.curUserId);
+  $scope.errors = [];
+  Tracker.autorun(function(self) {
+    $scope.myDog = Dogs.findOne({user_id: Meteor.userId()});
+    if (!$scope.$root.$$phase) $scope.$apply();
+    $scope.$on('$destroy', function() {
+      self.stop(); // Stop computation if scope is destroyed.
+    });
+  });
 
-  //$collection(Dogs, {user_id: $scope.curUserId}).bindOne($scope, 'myDog');
-  $scope.myDog = Dogs.findOne({user_id: $scope.curUserId});
-  console.log($scope.myDog);
-
-  $scope.getRandomDog = function() {
+  var sub = Meteor.subscribe('dogProfiles');
+  Tracker.autorun(function(self) {
     var randNum = Math.random();
-    console.log(randNum);
     $scope.dog = Dogs.findOne({
       randomize: {$lte: randNum},
-      downVotes: {$nin: [$scope.curUserId]},
-      _id: {$not: $scope.myDog._id}
+      user_id: {$ne: Meteor.userId()}
     });
     if (!$scope.dog) {
-      console.log('GT');
       $scope.dog = Dogs.findOne({
-        randomize: {$gt: randNum},
-        downVotes: {$nin: [$scope.curUserId]},
-        _id: {$not: $scope.myDog._id}
+        randomize: {$gte: randNum},
+        user_id: {$ne: Meteor.userId()}
       });
     }
-    console.log($scope.dog);
-  };
+    if (!$scope.$root.$$phase) $scope.$apply();
+    $scope.$on('$destroy', function() {
+      self.stop(); // Stop computation if scope is destroyed.
+      sub.stop();
+    });
+  });
 
   $scope.upVote = function() {
     if ($scope.dog) {
-      Dogs.update({_id: $scope.dog._id}, {$addToSet: {upVotes: $scope.myDog.user_id}});
-      console.log((_.indexOf($scope.myDog.upVotes, $scope.dog.user_id)));
+      Dogs.update({_id: $scope.dog._id}, {$addToSet: {upVotes: Meteor.userId()}});
+      console.log((Dogs.find().count() - 1), ' dogs left');
       if (_.indexOf($scope.myDog.upVotes, $scope.dog.user_id) > -1) {
         console.log('Match!!!!!');
-        Dogs.update({_id: $scope.dog._id}, {$addToSet: {matches: $scope.myDog.user_id}});
+        Dogs.update({_id: $scope.dog._id}, {$addToSet: {matches: Meteor.userId()}});
         Dogs.update({_id: $scope.myDog._id}, {$addToSet: {matches: $scope.dog.user_id}});
       }
     }
-    $scope.getRandomDog();
   };
 
   $scope.downVote = function() {
     if ($scope.dog) {
-      Dogs.update({_id: $scope.dog._id}, {$addToSet: {downVotes: $scope.curUserId}});
+      Dogs.update({_id: $scope.dog._id}, {$addToSet: {downVotes: Meteor.userId()}});
+      console.log((Dogs.find().count() - 1), ' dogs left');
     }
-    $scope.getRandomDog();
   };
 
   $scope.getMoreInfo = function() {
     $scope.showInfo = !$scope.showInfo;
   };
-
-  $scope.getRandomDog();
-
 }]);

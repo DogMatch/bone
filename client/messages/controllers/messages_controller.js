@@ -1,19 +1,19 @@
 'use strict';
-angular.module('boneApp').controller('MessagesCtrl', ['$scope', '$location', function($scope, $location) {
-  if (!Meteor.userId()) {
-    $location.path('/');
-  } else {
-    $scope.curUserId = Meteor.userId();
-  }
+angular.module('boneApp').controller('MessagesCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+  if (!Meteor.userId()) $location.path('/');
 
-  $scope.getMatchedDogs = function() {
-    $scope.matchedDogs = Dogs.find({matches: $scope.curUserId}).fetch();
-  };
+  $scope.errors = [];
+  var sub = Meteor.subscribe('matchedDogProfiles');
+  Tracker.autorun(function(self) {
+    $scope.matchedDogs = Dogs.find({user_id: {$ne: Meteor.userId()}}).fetch();
+    if (!$scope.$root.$$phase) $scope.$apply();
+    $scope.$on('$destroy', function() {
+      self.stop(); // Stop computation if scope is destroyed.
+      sub.stop();
+    });
+  });
 
   $scope.deleteMatch = function(id) {
-    Dogs.update({_id: id}, {$unset: {matches: $scope.curUserId}});
-    $scope.getMatchedDogs();
+    Dogs.update({_id: id}, {$unset: {matches: Meteor.userId()}});
   };
-
-  $scope.getMatchedDogs();
 }]);
