@@ -37,7 +37,7 @@ angular.module('boneApp').controller('MatchCtrl', ['$scope', '$rootScope', '$loc
       console.log((Dogs.find().count() - 1), ' dogs left');
       if (_.indexOf($scope.myDog.upVotes, $scope.dog.user_id) > -1) {
         console.log('Match!!!!!');
-        Dogs.update({_id: $scope.dog._id}, {$addToSet: {matches: $scope.myDog.user_id}});
+        Dogs.update({_id: $scope.dog._id}, {$addToSet: {matches: Meteor.userId()}});
         Dogs.update({_id: $scope.myDog._id}, {$addToSet: {matches: $scope.dog.user_id}});
       }
     }

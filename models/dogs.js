@@ -9,12 +9,16 @@ Dogs.allow({
     if (doc.user_id === userId) return true;
 
     // allow adding/removing your userId in these properties
-    if (modifier.$addToSet.upVotes === userId) return true;
-    if (modifier.$unset.upVotes === userId) return true;
-    if (modifier.$addToSet.downVotes === userId) return true;
-    if (modifier.$addToSet.matches === userId) return true;
-    if (modifier.$unset.matches === userId) return true;
-    return false;
+    if (modifier.$addToSet) {
+      if (modifier.$addToSet.upVotes === userId) return true;
+      if (modifier.$addToSet.downVotes === userId) return true;
+      if (modifier.$addToSet.matches === userId) return true;
+    } else if (modifier.$unset){
+      if (modifier.$unset.upVotes === userId) return true;
+      if (modifier.$unset.matches === userId) return true;
+    } else {
+      return true;
+    }
   },
   remove: function(userId, doc) {
     // can only remove your own documents
@@ -27,7 +31,7 @@ Dogs.deny({
     if (doc.user_id === userId && !fields.user_id) {
       // don't deny updating own dog profile, but deny updating user_id
       return false;
-    } else if (_.without(fields, ['upVotes', 'downVotes', 'matches'])) {
+    } else if (_.without(fields, 'upVotes', 'downVotes', 'matches') === []) {
       // deny updating properties other than these on other dog profiles
       return true;
     } else {
