@@ -37,20 +37,8 @@
 
   <!-- Add/Edit Pet Pic on Pet profile view -->
   <section class="pet-edit" data-ng-show="viewChoice == 'petPhoto'">
-    <img src='[[mydog.url]]' id="userPetPic" class="user-pet-pic" alt="Image preview...">
-    <p class="instruct">First 'Select File' then click 'Upload File'. If your picture doesn't load please click 'Upload File' again.</p>
-    <section class="btns-wrapper">
-      <label for="petPicUpload" class="pet-pic-upload clearfix">
-        <input type="file" id="petPicUpload" class="btn-pic-upload" value="Upload A Picture" onchange="this.nextElementSibling.textContent =  this.files[0].name">
-        {{#c_upload callback="save_url"}}
-        {{/c_upload}}
-        <!-- Need to find a way to style the button or input to say "upload image" and call type=file -->
-        <p>Select File</p>
-      </label>
-      <button class="btn-confirm" data-ng-click="photoUpload()">Upload File</button>
-      <button class="btn-confirm" data-ng-click="viewChoice = 'petProfile'">Save</button>
-      <button class="cancel" data-ng-click="viewChoice = 'petProfile'">Cancel</button>
-    </section>
+    <meteor-include src="imageUpload"></meteor-include>
+    <button class="btn-cancel" data-ng-click="viewChoice = 'petProfile'">Done</button>
   </section>
 
   <!-- Add/Edit Pet Bio on Pet Profile View -->
@@ -62,5 +50,19 @@
         <button class="cancel" data-ng-click="viewChoice = 'petProfile'">Cancel</button>
       </section>
     </section>
+  </section>
+</template>
+
+<template name='imageUpload'>
+  <img src="{{c.url public_id format=format}}" id="userPetPic" class="user-pet-pic" alt="Image preview...">
+  <p class="instruct">First 'Select File' then click 'Upload File'. If your picture doesn't load please click 'Upload File' again.</p>
+  <section class="btns-wrapper">
+      {{#c_upload_stream callback="save_url"}}
+        <input type="file">
+      {{/c_upload_stream}}
+      
+      {{#each c.uploading_images}}
+          <p>{{percent_uploaded}}</p>
+      {{/each}}
   </section>
 </template>

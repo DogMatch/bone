@@ -8,9 +8,5 @@ urigo:angular-ui-router
 accounts-password
 accounts-facebook
 urigo:angular
-cfs:standard-packages
-cfs:filesystem
-netanelgilad:angular-file-upload
-mrt:aws-sdk-js
-lepozepo:cloudinary
 fourseven:scss
+lepozepo:cloudinary
