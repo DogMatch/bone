@@ -93,12 +93,13 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$rootScope', 
 
   $scope.photoUpload = function() {
     uploadcare.openDialog(null, {
+      crop: "320x320 upscale",
       previewStep: true,
       imagesOnly: true
     }).done(function(file) {
       file.promise().done(function(fileInfo){
         console.log(fileInfo.cdnUrl);
-        Dogs.update({_id: $scope.mydog._id},{$set: {url: fileInfo.cdnUrl}});
+        Dogs.update({_id: $scope.mydog._id}, {$set: {url: fileInfo.cdnUrl}});
       });
     });
   };
