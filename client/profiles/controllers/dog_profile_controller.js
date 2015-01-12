@@ -29,8 +29,7 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$rootScope', 
   };
 
   $scope.petPhoto = function() {
-    $scope.photoUpload()
-    //$scope.viewChoice = 'petPhoto';
+    $scope.photoUpload();
   };
 
   $scope.petBio = function() {
@@ -93,15 +92,14 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$rootScope', 
 
   $scope.photoUpload = function() {
     uploadcare.openDialog(null, {
-      crop: "320x320 upscale",
+      crop: '320x320 upscale',
       previewStep: true,
       imagesOnly: true
     }).done(function(file) {
-      file.promise().done(function(fileInfo){
+      file.promise().done(function(fileInfo) {
         console.log(fileInfo.cdnUrl);
         Dogs.update({_id: $scope.mydog._id}, {$set: {url: fileInfo.cdnUrl}});
       });
     });
   };
 }]);
-
