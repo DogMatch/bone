@@ -35,12 +35,6 @@
     </section>
   </section>
 
-  <!-- Add/Edit Pet Pic on Pet profile view -->
-  <section class="pet-edit" data-ng-show="viewChoice == 'petPhoto'">
-    <meteor-include src="imageUpload"></meteor-include>
-    <button class="btn-cancel" data-ng-click="viewChoice = 'petProfile'">Done</button>
-  </section>
-
   <!-- Add/Edit Pet Bio on Pet Profile View -->
   <section class="pet-edit" data-ng-show="viewChoice == 'petDescription'">
     <section class="pet-edit-console">
@@ -50,19 +44,5 @@
         <button class="cancel" data-ng-click="viewChoice = 'petProfile'">Cancel</button>
       </section>
     </section>
-  </section>
-</template>
-
-<template name='imageUpload'>
-  <img src="{{c.url public_id format=format}}" id="userPetPic" class="user-pet-pic" alt="Image preview...">
-  <p class="instruct">First 'Select File' then click 'Upload File'. If your picture doesn't load please click 'Upload File' again.</p>
-  <section class="btns-wrapper">
-      {{#c_upload_stream callback="save_url"}}
-        <input type="file">
-      {{/c_upload_stream}}
-      
-      {{#each c.uploading_images}}
-          <p>{{percent_uploaded}}</p>
-      {{/each}}
   </section>
 </template>
