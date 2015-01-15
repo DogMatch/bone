@@ -29,7 +29,7 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$rootScope', 
   };
 
   $scope.petPhoto = function() {
-    $scope.viewChoice = 'petPhoto';
+    $scope.photoUpload();
   };
 
   $scope.petBio = function() {
@@ -66,7 +66,7 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$rootScope', 
       Dogs.update({
         _id: $scope.mydog._id
       },
-      { $set:
+      {$set:
         {
           name: $scope.mydog.name,
           age: $scope.mydog.age,
@@ -82,7 +82,6 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$rootScope', 
       });
     }
 
-    //$scope.mydog = Dogs.findOne({user_id: Meteor.userId()});
     $scope.viewChoice = 'petProfile';
   };
 
@@ -92,11 +91,14 @@ angular.module('boneApp').controller('DogProfileCtrl', ['$scope', '$rootScope', 
   };
 
   $scope.photoUpload = function() {
-    var files = $('input.btn-pic-upload')[0].files;
-    C.upload_stream(files, function(res) {
-      $scope.mydog.url = res.secure_url;
-      Dogs.update({_id: $scope.mydog._id}, {$set: {url: res.secure_url}}, function() {
-        document.getElementById('userPetPic').attr('url', $scope.mydog.url);
+    uploadcare.openDialog(null, {
+      crop: '320x320 upscale',
+      previewStep: true,
+      imagesOnly: true
+    }).done(function(file) {
+      file.promise().done(function(fileInfo) {
+        console.log(fileInfo.cdnUrl);
+        Dogs.update({_id: $scope.mydog._id}, {$set: {url: fileInfo.cdnUrl}});
       });
     });
   };

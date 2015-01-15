@@ -1,4 +1,5 @@
 .meteor
 packages
 tests
+models
 

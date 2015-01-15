@@ -35,6 +35,7 @@
     </section>
 
     <section data-ng-show="viewChoice == 'signed-in'" class="landing-sign">
+      <p align="center">Signed in as: [[$root.currentUser.emails[0].address]]</p>
       <section class="btns-wrapper">
         <button data-ng-click="toEditPass()">Edit Pass</button>
         <button class="cancel" data-ng-click="signOutUser()">Sign Out</button>

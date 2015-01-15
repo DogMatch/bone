@@ -80,6 +80,7 @@
       "Cloudinary": false,
       "Images": false,
       "C": false,
+      "uploadcare": false,
       
       // collections for this app
       "Dogs": false,
